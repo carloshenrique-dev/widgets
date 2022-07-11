@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/theme/app_colors.dart';
 import 'package:widgets/utils/app_routes.dart';
+import 'package:widgets/widgets/bottom_navigation_bar.dart';
 import '../widgets/default_text_form_field_widget.dart';
 import '../widgets/retangular_button_widget.dart';
 
@@ -28,6 +29,9 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const BottomNavigationWidget(
+
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: SingleChildScrollView(
@@ -40,10 +44,10 @@ class LoginPage extends StatelessWidget {
               ),
               const SizedBox(height: 10,),
               const DefaultTextFormWidget(),
-              const SizedBox( height: 30),
+              const SizedBox( height: 25),
               const DefaultTextFormWidget(title: 'Senha'),
               SizedBox(
-                height: 80,
+                height: 90,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
