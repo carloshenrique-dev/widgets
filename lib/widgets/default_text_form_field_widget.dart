@@ -1,6 +1,7 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 import 'package:widgets/theme/app_colors.dart';
-import 'package:widgets/theme/app_text_style.dart';
 
 class DefaultTextFormWidget extends StatelessWidget {
   final String? title;
@@ -19,16 +20,21 @@ class DefaultTextFormWidget extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(
             title ?? 'CPF/Usuario',
-            style: AppTextStyle.textFormFieldTitle,
+            style: const TextStyle(
+              fontSize: 17,
+              color: Colors.grey,
+            ),
+            // style: AppTextStyle.textFormFieldTitle,
             textAlign: TextAlign.left,
           ),
         ),
+        const SizedBox(height: 10),
         TextFormField(
           controller: controller,
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.green),
+              borderSide: BorderSide(color: AppColors.blue),
             ),
           ),
           //validator: Validatorless.required('Nome obrigatório'),
