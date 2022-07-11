@@ -28,7 +28,7 @@ class RetangularButtonWidget extends StatelessWidget {
       ),
       onPressed: onPressed ?? () {},
       child: Text(
-        title ?? 'Registre-se',
+        title ?? 'Entrar',
       ),
     );
   }
