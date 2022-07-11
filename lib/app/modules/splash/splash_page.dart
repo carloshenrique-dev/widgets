@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:widgets/app/core/ui/themes/app_colors.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -21,19 +20,9 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              AppColors.blue,
-              AppColors.green,
-            ],
-          ),
-        ),
-        child: const Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator.adaptive(),
       ),
     );
   }

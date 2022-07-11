@@ -6,20 +6,18 @@ class AppUI {
   AppUI._();
 
   static final ThemeData themeData = ThemeData(
-    //primarySwatch: AppColors.primarySwatch,
-    //primaryColor: AppColors.primaryColor,
-    //primaryColorLight: AppColors.primaryColorLight,
-    appBarTheme: AppBarTheme(
+    backgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.white,
+    appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
-      color: AppColors.blue,
+      color: AppColors.white,
       titleTextStyle: AppTextStyle.appBarTitle,
-      backgroundColor: AppColors.white,
     ),
     inputDecorationTheme: const InputDecorationTheme(
       border: OutlineInputBorder(),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.green),
+        borderSide: BorderSide(color: AppColors.blue),
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.grey),
