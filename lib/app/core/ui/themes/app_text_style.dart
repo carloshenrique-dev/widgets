@@ -9,4 +9,8 @@ class AppTextStyle {
     fontSize: 17,
     fontWeight: FontWeight.w400,
   );
+  static const TextStyle appBarTitle = TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.w600,
+  );
 }

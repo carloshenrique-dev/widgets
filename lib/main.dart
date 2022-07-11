@@ -1,21 +1,13 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:widgets/app/app_module.dart';
+import 'app/app_widget.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Home(),
-    );
-  }
+  runApp(ModularApp(
+    module: AppModule(),
+    child: const AppWidget(),
+  ));
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widgets/theme/app_colors.dart';
-import 'package:widgets/theme/app_text_style.dart';
+import 'package:widgets/app/core/ui/themes/app_text_style.dart';
 
 class DefaultTextFormWidget extends StatelessWidget {
   final String? title;
@@ -25,12 +24,6 @@ class DefaultTextFormWidget extends StatelessWidget {
         ),
         TextFormField(
           controller: controller,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.green),
-            ),
-          ),
           //validator: Validatorless.required('Nome obrigatório'),
         ),
       ],
