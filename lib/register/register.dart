@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
-import 'package:widgets/theme/app_colors.dart';
-import 'package:widgets/widgets/default_text_form_field_widget.dart';
-import 'package:widgets/widgets/password_form_field.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
+import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/password_form_field.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -12,11 +12,13 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  nameFieldController = TextEditingController();
-  emailFieldController = TextEditingController();
-  phoneFieldController = TextEditingController();
-  passwordFieldController = TextEditingController();
-  confirmPasswordFieldController = TextEditingController();
+  final TextEditingController _nameFieldController = TextEditingController();
+  final TextEditingController _emailFieldController = TextEditingController();
+  final TextEditingController _phoneFieldController = TextEditingController();
+  final TextEditingController _passwordFieldController =
+      TextEditingController();
+  final TextEditingController _confirmPasswordFieldController =
+      TextEditingController();
   bool _passwordVisible = false;
   bool _confirmPasswordVisible = false;
   final _formKey = GlobalKey<FormState>();

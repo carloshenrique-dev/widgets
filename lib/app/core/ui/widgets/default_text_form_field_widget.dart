@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:widgets/theme/app_colors.dart';
-import 'package:widgets/theme/app_text_style.dart';
 
 class DefaultTextFormWidget extends StatelessWidget {
   final String? title;
@@ -22,8 +20,11 @@ class DefaultTextFormWidget extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            title ?? 'CPF/Usuário',
-            style: AppTextStyle.textFormFieldTitle,
+            title ?? 'CPF/Usuario',
+            style: const TextStyle(
+              fontSize: 17,
+              color: Colors.grey,
+            ),
             textAlign: TextAlign.left,
           ),
         ),
@@ -32,11 +33,6 @@ class DefaultTextFormWidget extends StatelessWidget {
           controller: controller,
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: const TextStyle(color: Colors.grey),
-            border: const OutlineInputBorder(),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.green),
-            ),
           ),
           validator: validator,
         ),

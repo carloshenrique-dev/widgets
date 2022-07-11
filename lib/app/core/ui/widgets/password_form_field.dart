@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widgets/theme/app_colors.dart';
-import 'package:widgets/theme/app_text_style.dart';
+import 'package:widgets/app/core/ui/themes/app_text_style.dart';
 
 class PasswordFormField extends StatefulWidget {
   final String? title;
@@ -42,11 +41,6 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
           controller: widget.controller,
           decoration: InputDecoration(
             hintText: widget.hintText,
-            hintStyle: const TextStyle(color: Colors.grey),
-            border: const OutlineInputBorder(),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.green),
-            ),
             suffixIcon: IconButton(
               onPressed: widget.onPressed,
               icon: Icon(widget.obscureText == true

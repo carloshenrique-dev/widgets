@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widgets/theme/app_colors.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
 
 class SelectFarmScreen extends StatelessWidget {
   const SelectFarmScreen({Key? key}) : super(key: key);
