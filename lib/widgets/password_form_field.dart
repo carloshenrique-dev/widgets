@@ -2,19 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:widgets/theme/app_colors.dart';
 import 'package:widgets/theme/app_text_style.dart';
 
-class DefaultTextFormWidget extends StatelessWidget {
+class PasswordFormField extends StatefulWidget {
   final String? title;
   final String? hintText;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
-  const DefaultTextFormWidget({
+  final bool? obscureText;
+  final void Function()? onPressed;
+  const PasswordFormField({
     super.key,
+    this.onPressed,
     this.validator,
+    this.obscureText,
     this.title,
     this.hintText,
     this.controller,
   });
 
+  @override
+  State<PasswordFormField> createState() => _PasswordFormFieldState();
+}
+
+class _PasswordFormFieldState extends State<PasswordFormField> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,23 +31,30 @@ class DefaultTextFormWidget extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            title ?? 'CPF/Usuário',
+            widget.title ?? 'Senha',
             style: AppTextStyle.textFormFieldTitle,
             textAlign: TextAlign.left,
           ),
         ),
         const SizedBox(height: 10),
         TextFormField(
-          controller: controller,
+          obscureText: widget.obscureText == false ? true : false,
+          controller: widget.controller,
           decoration: InputDecoration(
-            hintText: hintText,
+            hintText: widget.hintText,
             hintStyle: const TextStyle(color: Colors.grey),
             border: const OutlineInputBorder(),
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.green),
             ),
+            suffixIcon: IconButton(
+              onPressed: widget.onPressed,
+              icon: Icon(widget.obscureText == true
+                  ? Icons.visibility_off
+                  : Icons.visibility),
+            ),
           ),
-          validator: validator,
+          validator: widget.validator,
         ),
       ],
     );
