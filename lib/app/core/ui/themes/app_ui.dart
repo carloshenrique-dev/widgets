@@ -15,6 +15,7 @@ class AppUI {
       titleTextStyle: AppTextStyle.appBarTitle,
     ),
     inputDecorationTheme: const InputDecorationTheme(
+      hintStyle: TextStyle(color: Colors.grey),
       border: OutlineInputBorder(),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.blue),

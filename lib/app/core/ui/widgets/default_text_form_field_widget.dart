@@ -1,5 +1,3 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-
 import 'package:flutter/material.dart';
 
 class DefaultTextFormWidget extends StatelessWidget {
@@ -9,10 +7,10 @@ class DefaultTextFormWidget extends StatelessWidget {
   final String? Function(String?)? validator;
   const DefaultTextFormWidget({
     super.key,
-    this.title,
-    this.controller,
-    this.hintText,
     this.validator,
+    this.title,
+    this.hintText,
+    this.controller,
   });
 
   @override
@@ -27,14 +25,16 @@ class DefaultTextFormWidget extends StatelessWidget {
               fontSize: 17,
               color: Colors.grey,
             ),
-            // style: AppTextStyle.textFormFieldTitle,
             textAlign: TextAlign.left,
           ),
         ),
         const SizedBox(height: 10),
         TextFormField(
           controller: controller,
-          //validator: Validatorless.required('Nome obrigatório'),
+          decoration: InputDecoration(
+            hintText: hintText,
+          ),
+          validator: validator,
         ),
       ],
     );

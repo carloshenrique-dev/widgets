@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/bottom_navigation_bar.dart';
 import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
-import 'package:widgets/utils/app_routes.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -52,8 +52,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      onPressed: () => Navigator.pushNamed(
-                          context, AppRoutes.RECOVER_PASSWORD_PAGE),
+                      onPressed: () => Modular.to.navigate('/'),
                       child: const Text(
                         'Esqueci minha Senha',
                         style: TextStyle(fontSize: 17, color: AppColors.blue),
@@ -80,10 +79,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushNamed(AppRoutes.RECOVER_PASSWORD_PAGE);
-                    },
+                    onPressed: () => Modular.to.navigate(''),
                     child: const Text(
                       'Registre-se',
                       style: TextStyle(
