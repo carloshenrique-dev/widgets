@@ -22,13 +22,13 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
         BottomNavigationBarItem(
           label: 'Praça',
           icon: Icon(
-            Icons.park,
+            Icons.store,
           ),
         ),
         BottomNavigationBarItem(
           label: 'Leitura',
           icon: Icon(
-            Icons.graphic_eq,
+            Icons.bar_chart_outlined,
           ),
         ),
         BottomNavigationBarItem(
@@ -40,7 +40,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
         BottomNavigationBarItem(
           label: 'Alertas',
           icon: Icon(
-            Icons.alarm_outlined,
+            Icons.notifications,
           ),
         ),
       ],
