@@ -1,9 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-
-import '../theme/app_text_style.dart';
-import '../widgets/default_text_form_field_widget.dart';
-import '../theme/app_colors.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
+import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
 
 class RecoverPasswordPage extends StatelessWidget {
   const RecoverPasswordPage({Key? key}) : super(key: key);
@@ -33,7 +32,6 @@ class RecoverPasswordPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         child: SingleChildScrollView(
           child: Column(
-            
             children: [
               const SizedBox(
                 height: 20,
@@ -70,21 +68,14 @@ class RecoverPasswordPage extends StatelessWidget {
               SizedBox(
                 width: media.width,
                 height: 45,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    primary: AppColors.blue, // background
-                    onPrimary: Colors.white, // foreground
-                    textStyle: AppTextStyle.buttonText,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
+                child: RetangularButtonWidget(
                   onPressed: () {},
-                  child: const Text('Solicitar Senha'),
+                  title: 'Solicitar Senha',
                 ),
               ),
-              const SizedBox(height: 120,),
+              const SizedBox(
+                height: 120,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

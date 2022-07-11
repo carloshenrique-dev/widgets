@@ -1,30 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:widgets/pages/login_page.dart';
-import 'package:widgets/utils/app_routes.dart';
-import 'home.dart';
-import 'pages/recover_password_page.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:widgets/app/app_module.dart';
+import 'app/app_widget.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Home(),
-      initialRoute: AppRoutes.HOME,
-      routes: {
-        AppRoutes.LOGINPAGE: (ctx) => const LoginPage(),
-        AppRoutes.RECOVER_PASSWORD_PAGE: (ctx) => const RecoverPasswordPage(),
-      },
-    );
-  }
+  runApp(ModularApp(
+    module: AppModule(),
+    child: const AppWidget(),
+  ));
 }
