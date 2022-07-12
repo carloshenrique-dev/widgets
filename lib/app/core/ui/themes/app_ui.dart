@@ -18,7 +18,7 @@ class AppUI {
       hintStyle: TextStyle(color: Colors.grey),
       border: OutlineInputBorder(),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.blue),
+        borderSide: BorderSide(color: AppColors.purpleBlue),
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.grey),

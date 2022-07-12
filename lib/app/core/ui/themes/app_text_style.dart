@@ -13,7 +13,7 @@ class AppTextStyle {
   static const TextStyle appBarTitle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
-    color: AppColors.blue,
+    color: AppColors.purpleBlue,
   );
   static const TextStyle commonText = TextStyle(
     fontSize: 18,
@@ -28,6 +28,6 @@ class AppTextStyle {
   static const TextStyle textLink = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
-    color: AppColors.blue,
+    color: AppColors.purpleBlue,
   );
 }

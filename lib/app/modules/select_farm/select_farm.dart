@@ -15,7 +15,7 @@ class SelectFarmScreen extends StatelessWidget {
           title: const Text(
             'Login',
             style: TextStyle(
-              color: AppColors.blue,
+              color: AppColors.purpleBlue,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -38,9 +38,9 @@ class SelectFarmScreen extends StatelessWidget {
                         height: 45,
                         child: OutlinedButton(
                           style: OutlinedButton.styleFrom(
-                            primary: AppColors.blue,
+                            primary: AppColors.purpleBlue,
                             side: const BorderSide(
-                              color: AppColors.blue,
+                              color: AppColors.purpleBlue,
                               width: 1,
                             ),
                           ),
@@ -48,7 +48,7 @@ class SelectFarmScreen extends StatelessWidget {
                           child: const Text(
                             'Farm 1',
                             style: TextStyle(
-                              color: AppColors.blue,
+                              color: AppColors.purpleBlue,
                               fontWeight: FontWeight.w400,
                             ),
                           ),

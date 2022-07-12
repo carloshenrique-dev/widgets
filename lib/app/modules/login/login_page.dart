@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "Login",
-          style: TextStyle(color: AppColors.blue),
+          style: TextStyle(color: AppColors.purpleBlue),
         ),
         centerTitle: true,
         backgroundColor: Colors.white24,
@@ -55,7 +55,8 @@ class LoginPage extends StatelessWidget {
                       onPressed: () => Modular.to.navigate('/'),
                       child: const Text(
                         'Esqueci minha Senha',
-                        style: TextStyle(fontSize: 17, color: AppColors.blue),
+                        style: TextStyle(
+                            fontSize: 17, color: AppColors.purpleBlue),
                       ),
                     )
                   ],
@@ -65,7 +66,7 @@ class LoginPage extends StatelessWidget {
                 width: media.width,
                 height: 45,
                 child: const RetangularButtonWidget(
-                  color: AppColors.blue,
+                  color: AppColors.purpleBlue,
                 ),
               ),
               const SizedBox(height: 180),
@@ -84,7 +85,7 @@ class LoginPage extends StatelessWidget {
                       'Registre-se',
                       style: TextStyle(
                         fontSize: 16,
-                        color: AppColors.blue,
+                        color: AppColors.purpleBlue,
                       ),
                     ),
                   )

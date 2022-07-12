@@ -19,7 +19,7 @@ class RetangularButtonWidget extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        primary: color ?? AppColors.blue, // background
+        primary: color ?? AppColors.purpleBlue, // background
         onPrimary: Colors.white, // foreground
         textStyle: AppTextStyle.buttonText,
         shape: RoundedRectangleBorder(

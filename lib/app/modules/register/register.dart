@@ -37,8 +37,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
           centerTitle: true,
           title: const Text(
             'Registre-se',
-            style:
-                TextStyle(color: AppColors.blue, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: AppColors.purpleBlue, fontWeight: FontWeight.bold),
           ),
           elevation: 0,
           backgroundColor: AppColors.white,

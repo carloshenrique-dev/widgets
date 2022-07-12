@@ -16,7 +16,7 @@ class RecoverPasswordPage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "Recuperar Senha",
-          style: TextStyle(color: AppColors.blue),
+          style: TextStyle(color: AppColors.purpleBlue),
         ),
         backgroundColor: Colors.white24,
         elevation: 0.0,
@@ -91,7 +91,7 @@ class RecoverPasswordPage extends StatelessWidget {
                       'Cadastre-se',
                       style: TextStyle(
                         fontSize: 18,
-                        color: AppColors.blue,
+                        color: AppColors.purpleBlue,
                       ),
                     ),
                   )

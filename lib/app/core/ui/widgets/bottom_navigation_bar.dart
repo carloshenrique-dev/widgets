@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 
-
 class BottomNavigationWidget extends StatefulWidget {
   const BottomNavigationWidget({Key? key}) : super(key: key);
 
@@ -16,7 +15,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      unselectedItemColor: AppColors.blue,
+      unselectedItemColor: AppColors.purpleBlue,
       selectedItemColor: AppColors.green,
       items: const [
         BottomNavigationBarItem(
@@ -45,7 +44,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
         ),
       ],
       currentIndex: currentIndex,
-      onTap: (valeu)=> setState(()=> currentIndex = valeu),
+      onTap: (valeu) => setState(() => currentIndex = valeu),
     );
   }
 }
