@@ -1,32 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
+import 'package:widgets/app/core/ui/widgets/top_image.dart';
 
-class SelectFarmScreen extends StatelessWidget {
-  const SelectFarmScreen({Key? key}) : super(key: key);
+class SelectFarmPage extends StatelessWidget {
+  const SelectFarmPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          elevation: 0,
-          backgroundColor: AppColors.white,
-          centerTitle: true,
-          title: const Text(
-            'Login',
-            style: TextStyle(
-              color: AppColors.purpleBlue,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          title: const Text('Login'),
         ),
         body: Container(
           color: AppColors.white,
           child: Column(
             children: [
-              const SizedBox(height: 40),
-              const Image(image: AssetImage('assets/images/farm.png')),
-              const SizedBox(height: 40),
+              const TopImage(url: 'assets/images/farm.png'),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(20),
