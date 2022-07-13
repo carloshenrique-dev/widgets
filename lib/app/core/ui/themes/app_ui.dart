@@ -14,6 +14,7 @@ class AppUI {
       color: AppColors.white,
       titleTextStyle: AppTextStyle.appBarTitle,
     ),
+    textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.grey),
     inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: Colors.grey),
       border: OutlineInputBorder(),
