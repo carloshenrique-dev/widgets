@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-
-import '../../../core/ui/themes/app_colors.dart';
-import '../../../core/ui/widgets/filter_bottom_sheet.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
+import 'package:widgets/app/core/ui/widgets/filter_bottom_sheet.dart';
 
 class HeaderWidget extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
-    BuildContext context, double shrinkOffset, bool overlapsContent) {
-      return LayoutBuilder(
-        builder: (context, constraints){
-          return Row(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Container(
+          color: AppColors.iceWhite,
+          height: constraints.maxHeight,
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               IconButton(
@@ -17,7 +19,7 @@ class HeaderWidget extends SliverPersistentHeaderDelegate {
                 icon: const Icon(
                   Icons.add,
                   color: AppColors.purpleBlue,
-                  size: 35.0,
+                  size: 30,
                 ),
               ),
               const SizedBox(
@@ -25,10 +27,12 @@ class HeaderWidget extends SliverPersistentHeaderDelegate {
               ),
               const FilterBottomSheet(),
             ],
+          ),
         );
       },
     );
   }
+
   @override
   double get maxExtent => 50;
 

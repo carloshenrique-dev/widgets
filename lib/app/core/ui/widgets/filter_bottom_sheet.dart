@@ -16,6 +16,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return IconButton(
       onPressed: () {
         showModalBottomSheet(
@@ -29,20 +30,25 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                   child: Column(
                     children: <Widget>[
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          const Icon(
-                            Icons.filter_alt,
-                            color: AppColors.purpleBlue,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text(
-                            'Filtrar por:',
-                            style: TextStyle(
-                              color: AppColors.purpleBlue,
-                              fontSize: 18,
-                            ),
+                          Row(
+                            children: const [
+                              Icon(
+                                Icons.filter_alt,
+                                color: AppColors.purpleBlue,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Filtrar por:',
+                                style: TextStyle(
+                                  color: AppColors.purpleBlue,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ],
                           ),
                           IconButton(
                             onPressed: () => Navigator.of(context).pop(),
@@ -56,8 +62,8 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                       // DropdownButton<String>(
                       //   value: selectedItem,
                       //   items: _items.map((item) => DropdownMenuItem<String>(
-                      //     value: item, 
-                      //     child: const Text(''), 
+                      //     value: item,
+                      //     child: const Text(''),
                       //   )).toList()
                       //   onChanged: onChanged,
                       // )
@@ -68,7 +74,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
       icon: const Icon(
         Icons.filter_alt,
         color: AppColors.purpleBlue,
-        size: 25.0,
+        size: 30,
       ),
     );
   }

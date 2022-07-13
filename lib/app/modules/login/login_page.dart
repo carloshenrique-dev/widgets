@@ -48,10 +48,10 @@ class LoginPage extends StatelessWidget {
                 height: 90,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     TextButton(
-                      onPressed: () => Modular.to.navigate('/'),
-                      child: const Text(
+                      onPressed: null,
+                      child: Text(
                         'Esqueci minha Senha',
                         style: TextStyle(
                             fontSize: 17, color: AppColors.purpleBlue),
@@ -70,16 +70,16 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 180),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     'Não é Registrado?',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   TextButton(
-                    onPressed: () => Modular.to.navigate(''),
-                    child: const Text(
+                    onPressed: null,
+                    child: Text(
                       'Registre-se',
                       style: TextStyle(
                         fontSize: 16,
