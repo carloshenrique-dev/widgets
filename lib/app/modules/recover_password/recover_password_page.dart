@@ -18,7 +18,6 @@ class RecoverPasswordPage extends StatelessWidget {
           "Recuperar Senha",
           style: TextStyle(color: AppColors.purpleBlue),
         ),
-        backgroundColor: Colors.white24,
         elevation: 0.0,
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
