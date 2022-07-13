@@ -23,7 +23,7 @@ class RetangularButtonWidget extends StatelessWidget {
         onPrimary: Colors.white, // foreground
         textStyle: AppTextStyle.buttonText,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
         ),
       ),
       onPressed: onPressed ?? () {},
