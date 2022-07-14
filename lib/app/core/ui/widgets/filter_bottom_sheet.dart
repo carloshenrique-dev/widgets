@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets/app/core/ui/widgets/dropdown_button_widget.dart';
 
 import '../themes/app_colors.dart';
 
@@ -10,10 +11,6 @@ class FilterBottomSheet extends StatefulWidget {
 }
 
 class _FilterBottomSheetState extends State<FilterBottomSheet> {
-  final bool _isChecked = false;
-  final List<String> _items = ['Status', 'Fazenda', 'Talhão', 'Cultura'];
-  String? selectedItem = 'Status';
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -59,14 +56,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                           ),
                         ],
                       ),
-                      // DropdownButton<String>(
-                      //   value: selectedItem,
-                      //   items: _items.map((item) => DropdownMenuItem<String>(
-                      //     value: item,
-                      //     child: const Text(''),
-                      //   )).toList()
-                      //   onChanged: onChanged,
-                      // )
+                      const DropdownButtonWidget()
                     ],
                   ),
                 ));
