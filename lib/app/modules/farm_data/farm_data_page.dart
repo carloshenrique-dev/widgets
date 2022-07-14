@@ -1,25 +1,21 @@
-// ignore_for_file: sized_box_for_whitespace
-
 import 'package:flutter/material.dart';
-import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/field_tile_popup_button.dart';
 
+import '../../core/ui/themes/app_colors.dart';
+import '../../core/ui/widgets/farm_tile_popup_button.dart';
 import '../../core/ui/widgets/header_widget.dart';
 
-enum PopupOptions { Data, Remove }
-
-class FieldsPage extends StatefulWidget {
-  const FieldsPage({Key? key}) : super(key: key);
+class FarmDataPage extends StatefulWidget {
+  const FarmDataPage({Key? key}) : super(key: key);
 
   @override
-  State<FieldsPage> createState() => _FieldsPageState();
+  State<FarmDataPage> createState() => _FarmDataPageState();
 }
 
-class _FieldsPageState extends State<FieldsPage> {
-  List<String> plots = [
-    'Talhão Asa Branca',
-    'Talhão Espigão',
-    'Talhão Santa Ana'
+class _FarmDataPageState extends State<FarmDataPage> {
+  List<String> farms = [
+    'Fazenda Gloriosa',
+    'Fazenda Ribeirinha',
+    'Fazenda Fortim'
   ];
 
   @override
@@ -27,7 +23,7 @@ class _FieldsPageState extends State<FieldsPage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Talhões'),
+        title: const Text('Dados da Fazenda'),
       ),
       body: SafeArea(
         child: CustomScrollView(
@@ -49,7 +45,7 @@ class _FieldsPageState extends State<FieldsPage> {
 
   List<Widget> generateListTile(Size size) {
     return List<Padding>.generate(
-      plots.length,
+      farms.length,
       (index) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
@@ -71,13 +67,13 @@ class _FieldsPageState extends State<FieldsPage> {
                     ),
                     const SizedBox(width: 15),
                     Text(
-                      plots[index],
+                      farms[index],
                       style: const TextStyle(
                           color: AppColors.navyBlue, fontSize: 20),
                     ),
                   ],
                 ),
-                const FieldTilePopupButton(),
+                const FarmTilePopupButton(),
               ],
             ),
           ),
