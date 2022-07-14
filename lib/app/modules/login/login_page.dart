@@ -13,6 +13,7 @@ class LoginPage extends StatelessWidget {
     Size media = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: AppBar(
         title: const Text(
           "Login",
@@ -48,10 +49,10 @@ class LoginPage extends StatelessWidget {
                 height: 90,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     TextButton(
-                      onPressed: null,
-                      child: Text(
+                      onPressed: () => Modular.to.navigate('/recover/'),
+                      child: const Text(
                         'Esqueci minha Senha',
                         style: TextStyle(
                             fontSize: 17, color: AppColors.purpleBlue),

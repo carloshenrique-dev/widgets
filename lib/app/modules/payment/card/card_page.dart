@@ -140,7 +140,6 @@ class _CardPageState extends State<CardPage> {
                           controller: _cpfController,
                           validator: Validatorless.multiple([
                             Validatorless.required('Informe seu CPF'),
-                            Validatorless.number('Digite apenas números'),
                             Validatorless.cpf('Informe seu CPF'),
                           ]),
                           inputFormatters: [
@@ -163,10 +162,7 @@ class _CardPageState extends State<CardPage> {
                           hintText: 'Digite aqui',
                           textInputType: TextInputType.number,
                           controller: _postalCodeController,
-                          validator: Validatorless.multiple([
-                            Validatorless.required('Informe seu CEP'),
-                            Validatorless.number('Digite apenas números')
-                          ]),
+                          validator: Validatorless.required('Informe seu CEP'),
                           inputFormatters: [
                             FilteringTextInputFormatter.digitsOnly,
                             CepInputFormatter(ponto: false),

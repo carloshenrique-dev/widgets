@@ -12,6 +12,7 @@ class RecoverPasswordPage extends StatelessWidget {
     Size media = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -19,13 +20,13 @@ class RecoverPasswordPage extends StatelessWidget {
           style: TextStyle(color: AppColors.purpleBlue),
         ),
         elevation: 0.0,
-        leading: IconButton(
+        /*leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
           icon: const Icon(
             Icons.arrow_back,
             color: Colors.grey,
           ),
-        ),
+        ),*/
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
@@ -55,7 +56,6 @@ class RecoverPasswordPage extends StatelessWidget {
               ),
               const AutoSizeText(
                 'Caso não tenha acesso ao seu e-mail cadastrado, não se preocupe, enviaremos também para seu e-mail de recuperação.',
-                // textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,

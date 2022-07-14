@@ -11,6 +11,7 @@ import 'modules/otp/otp_module.dart';
 import 'modules/payment/payment_module.dart';
 import 'modules/personal_data/personal_data_module.dart';
 import 'modules/readings/readings_module.dart';
+import 'modules/recover_password/recover_password_module.dart';
 import 'modules/register/register_module.dart';
 import 'modules/select_farm/select_farm_module.dart';
 import 'modules/splash/splash_page.dart';
@@ -38,5 +39,6 @@ class AppModule extends Module {
         ModuleRoute('/farmData/', module: FarmDataModule()),
         ModuleRoute('/configureSensor/', module: ConfigureSensorModule()),
         ModuleRoute('/payment/', module: PaymentModule()),
+        ModuleRoute('/recover/', module: RecoverPasswordModule()),
       ];
 }

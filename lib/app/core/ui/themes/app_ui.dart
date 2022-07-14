@@ -7,7 +7,7 @@ class AppUI {
 
   static final ThemeData themeData = ThemeData(
     backgroundColor: AppColors.white,
-    scaffoldBackgroundColor: AppColors.backgroudColor,
+    scaffoldBackgroundColor: AppColors.backgroundColor,
     appBarTheme: AppBarTheme(
       elevation: 0,
       centerTitle: true,
