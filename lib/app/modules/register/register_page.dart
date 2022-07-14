@@ -5,7 +5,7 @@ import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart'
 import 'package:widgets/app/core/ui/widgets/password_form_field.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();

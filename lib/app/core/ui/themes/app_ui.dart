@@ -7,7 +7,7 @@ class AppUI {
 
   static final ThemeData themeData = ThemeData(
     backgroundColor: AppColors.white,
-    scaffoldBackgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.backgroudColor,
     appBarTheme: AppBarTheme(
       elevation: 0,
       centerTitle: true,
@@ -15,6 +15,7 @@ class AppUI {
       titleTextStyle: AppTextStyle.appBarTitle,
       iconTheme: const IconThemeData(color: AppColors.purpleBlue),
     ),
+    textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.grey),
     inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: Colors.grey),
       border: OutlineInputBorder(),
@@ -22,6 +23,9 @@ class AppUI {
         borderSide: BorderSide(color: AppColors.purpleBlue),
       ),
       enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.grey),
+      ),
+      disabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.grey),
       ),
       labelStyle: TextStyle(color: Colors.black),

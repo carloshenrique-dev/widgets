@@ -3,7 +3,7 @@ import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/top_image.dart';
 
 class SelectFarmPage extends StatelessWidget {
-  const SelectFarmPage({Key? key}) : super(key: key);
+  const SelectFarmPage({super.key});
 
   @override
   Widget build(BuildContext context) {
