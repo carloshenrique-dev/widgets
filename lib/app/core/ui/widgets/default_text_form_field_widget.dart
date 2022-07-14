@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class DefaultTextFormWidget extends StatelessWidget {
   final String? title;
@@ -7,6 +8,8 @@ class DefaultTextFormWidget extends StatelessWidget {
   final TextInputType? textInputType;
   final String? Function(String?)? validator;
   final TextInputAction? textInputAction;
+  final List<TextInputFormatter>? inputFormatters;
+
   const DefaultTextFormWidget({
     super.key,
     this.validator,
@@ -15,6 +18,7 @@ class DefaultTextFormWidget extends StatelessWidget {
     this.hintText,
     this.controller,
     this.textInputAction,
+    this.inputFormatters,
   });
 
   @override
@@ -41,6 +45,7 @@ class DefaultTextFormWidget extends StatelessWidget {
           validator: validator,
           keyboardType: textInputType,
           textInputAction: textInputAction,
+          inputFormatters: inputFormatters,
         ),
       ],
     );
