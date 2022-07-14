@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
-  const BottomNavigationWidget({Key? key}) : super(key: key);
+  const BottomNavigationWidget({super.key});
 
   @override
   State<BottomNavigationWidget> createState() => _BottomNavigationWidgetState();

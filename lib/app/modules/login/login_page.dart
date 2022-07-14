@@ -6,7 +6,7 @@ import 'package:widgets/app/core/ui/widgets/password_form_field.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () => Modular.to.navigate(''),
+                    onPressed: () => Modular.to.navigate('/register/'),
                     child: const Text(
                       'Registre-se',
                       style: TextStyle(
