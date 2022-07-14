@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:widgets/app/modules/farm_data/farm_data_module.dart';
 import 'package:widgets/app/modules/fields/fields_module.dart';
 import 'package:widgets/app/modules/welcome/welcome_module.dart';
 import 'modules/login/login_module.dart';
@@ -16,5 +17,6 @@ class AppModule extends Module {
         ModuleRoute('/initial/', module: WelcomeModule()),
         ModuleRoute('/login/', module: LoginModule()),
         ModuleRoute('/fields/', module: FieldsModule()),
+        ModuleRoute('/farmData/', module: FarmDataModule()),
       ];
 }
