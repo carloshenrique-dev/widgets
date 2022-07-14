@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/password_form_field.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -18,13 +19,12 @@ class LoginPage extends StatelessWidget {
           style: TextStyle(color: AppColors.purpleBlue),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white24,
         elevation: 0.0,
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
           icon: const Icon(
             Icons.arrow_back,
-            color: Colors.grey,
+            color: AppColors.purpleBlue,
           ),
         ),
       ),
@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
               ),
               const DefaultTextFormWidget(),
               const SizedBox(height: 25),
-              const DefaultTextFormWidget(title: 'Senha'),
+              const PasswordFormField(),
               SizedBox(
                 height: 90,
                 child: Row(

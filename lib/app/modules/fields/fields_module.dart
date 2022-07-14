@@ -1,13 +1,13 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'login_page.dart';
+import 'fields_page.dart';
 
-class LoginModule extends Module {
+class FieldsModule extends Module {
   @override
   List<Bind> get binds => [
         //BlocBind.lazySingleton((i) => OtpController()),
       ];
-
+  
   @override
   List<ModularRoute> get routes =>
-      [ChildRoute('/', child: (context, args) => const LoginPage())];
+    [ChildRoute('/', child:(context, args) => const FieldsPage())];
 }

@@ -7,19 +7,7 @@ class AppUI {
 
   static final ThemeData themeData = ThemeData(
     backgroundColor: AppColors.white,
-    scaffoldBackgroundColor: AppColors.white,
-    tabBarTheme: const TabBarTheme(
-      labelColor: AppColors.purpleBlue,
-      labelPadding: EdgeInsets.symmetric(horizontal: 20),
-      labelStyle: AppTextStyle.textLink,
-      indicatorSize: TabBarIndicatorSize.label,
-      indicator: UnderlineTabIndicator(
-        borderSide: BorderSide(
-          color: AppColors.purpleBlue,
-          width: 2,
-        ),
-      ),
-    ),
+    scaffoldBackgroundColor: AppColors.backgroudColor,
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
