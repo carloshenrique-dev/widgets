@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:widgets/app/modules/register/register_page.dart';
+import 'package:widgets/app/modules/no_coverage_purchase/no_coverage_purchase_page.dart';
 
-class RegisterModule extends Module {
+class NoCoverageModule extends Module {
   @override
   List<Bind> get binds => [
         //BlocBind.lazySingleton((i) => OtpController()),
@@ -9,5 +9,5 @@ class RegisterModule extends Module {
 
   @override
   List<ModularRoute> get routes =>
-      [ChildRoute('/', child: (context, args) => const RegisterPage())];
+      [ChildRoute('/', child: (context, args) => const NoCoveragePage())];
 }

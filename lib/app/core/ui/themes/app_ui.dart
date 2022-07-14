@@ -6,13 +6,14 @@ class AppUI {
   AppUI._();
 
   static final ThemeData themeData = ThemeData(
-    backgroundColor: AppColors.iceWhite,
-    scaffoldBackgroundColor: AppColors.iceWhite,
-    appBarTheme: const AppBarTheme(
+    backgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.backgroudColor,
+    appBarTheme: AppBarTheme(
       elevation: 0,
       centerTitle: true,
       color: AppColors.white,
       titleTextStyle: AppTextStyle.appBarTitle,
+      iconTheme: const IconThemeData(color: AppColors.purpleBlue),
     ),
     textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.grey),
     inputDecorationTheme: const InputDecorationTheme(
