@@ -79,7 +79,7 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
               ),
             ),
             const SizedBox(height: 20),
-            SingleChildScrollView(
+            Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8),
                 child: Container(
@@ -92,69 +92,61 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                     child: Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Sensores',
-                                  style: TextStyle(
-                                      fontSize: 18, color: AppColors.navyBlue),
-                                ),
-                              ],
+                            SizedBox(
+                              width: size.width / 2.5,
+                              child: const Text(
+                                'Sensores',
+                                style: TextStyle(
+                                    fontSize: 18, color: AppColors.navyBlue),
+                              ),
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Status',
-                                  style: TextStyle(
-                                      fontSize: 18, color: AppColors.navyBlue),
-                                ),
-                              ],
+                            SizedBox(
+                              width: size.width / 2.5,
+                              child: const Text(
+                                'Status',
+                                style: TextStyle(
+                                    fontSize: 18, color: AppColors.navyBlue),
+                              ),
                             ),
                           ],
                         ),
                         const Divider(
                           height: 40,
                           thickness: 1.2,
-                          color: AppColors.navyBlue,
+                          color: AppColors.purpleBlue,
                         ),
                         Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: ListView.builder(
-                              itemCount: 3,
-                              itemBuilder: (ctx, index) {
-                                String? status = sensorsList[index]
-                                    .values
-                                    .toString()
-                                    .replaceAll(RegExp('[()]'), '');
-                                String? sensor = sensorsList[index]
-                                    .keys
-                                    .toString()
-                                    .replaceAll(RegExp('[()]'), '');
+                          child: ListView.builder(
+                            itemCount: 3,
+                            itemBuilder: (ctx, index) {
+                              String? status = sensorsList[index]
+                                  .values
+                                  .toString()
+                                  .replaceAll(RegExp('[()]'), '');
+                              String? sensor = sensorsList[index]
+                                  .keys
+                                  .toString()
+                                  .replaceAll(RegExp('[()]'), '');
 
-                                return Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SensorEditBottomSheet(
-                                      sensorName: sensor,
+                              return Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SensorEditBottomSheet(
+                                    sensorName: sensor,
+                                  ),
+                                  Text(
+                                    status,
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: getTextColor(status),
                                     ),
-                                    Text(
-                                      status,
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        color: getTextColor(status),
-                                      ),
-                                    ),
-                                    const FieldTilePopupButton()
-                                  ],
-                                );
-                              },
-                            ),
+                                  ),
+                                  const FieldTilePopupButton()
+                                ],
+                              );
+                            },
                           ),
                         ),
                       ],
