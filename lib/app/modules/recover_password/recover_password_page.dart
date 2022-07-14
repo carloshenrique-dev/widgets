@@ -5,7 +5,7 @@ import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart'
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
 
 class RecoverPasswordPage extends StatelessWidget {
-  const RecoverPasswordPage({Key? key}) : super(key: key);
+  const RecoverPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {

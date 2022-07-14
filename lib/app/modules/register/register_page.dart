@@ -4,14 +4,14 @@ import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
 import 'package:widgets/app/core/ui/widgets/password_form_field.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _nameFieldController = TextEditingController();
   final TextEditingController _emailFieldController = TextEditingController();
   final TextEditingController _phoneFieldController = TextEditingController();
@@ -34,14 +34,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          title: const Text(
-            'Registre-se',
-            style: TextStyle(
-                color: AppColors.purpleBlue, fontWeight: FontWeight.bold),
-          ),
-          elevation: 0,
-          backgroundColor: AppColors.white,
+          title: const Text('Registre-se'),
         ),
         body: SingleChildScrollView(
           child: Container(

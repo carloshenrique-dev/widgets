@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'login_page.dart';
+import 'boleto_page.dart';
 
-class LoginModule extends Module {
+class BoletoModule extends Module {
   @override
   List<Bind> get binds => [
         //BlocBind.lazySingleton((i) => OtpController()),
@@ -9,5 +9,5 @@ class LoginModule extends Module {
 
   @override
   List<ModularRoute> get routes =>
-      [ChildRoute('/', child: (context, args) => const LoginPage())];
+      [ChildRoute('/', child: (context, args) => const BoletoPage())];
 }
