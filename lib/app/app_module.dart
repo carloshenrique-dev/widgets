@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:widgets/app/modules/configure_sensor/configure_sensor_module.dart';
 import 'package:widgets/app/modules/farm_data/farm_data_module.dart';
 import 'package:widgets/app/modules/fields/fields_module.dart';
 import 'package:widgets/app/modules/welcome/welcome_module.dart';
@@ -18,5 +19,6 @@ class AppModule extends Module {
         ModuleRoute('/login/', module: LoginModule()),
         ModuleRoute('/fields/', module: FieldsModule()),
         ModuleRoute('/farmData/', module: FarmDataModule()),
+        ModuleRoute('/configureSensor/', module: ConfigureSensorModule()),
       ];
 }

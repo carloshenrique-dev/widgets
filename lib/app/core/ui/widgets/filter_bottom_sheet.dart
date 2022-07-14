@@ -13,53 +13,51 @@ class FilterBottomSheet extends StatefulWidget {
 class _FilterBottomSheetState extends State<FilterBottomSheet> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return IconButton(
       onPressed: () {
         showModalBottomSheet(
-            context: context,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(
-              top: Radius.circular(15),
-            )),
-            builder: (context) => Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Row(
-                            children: const [
-                              Icon(
-                                Icons.filter_alt,
-                                color: AppColors.purpleBlue,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Filtrar por:',
-                                style: TextStyle(
-                                  color: AppColors.purpleBlue,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ],
+          context: context,
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+            top: Radius.circular(15),
+          )),
+          builder: (context) => Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.filter_alt,
+                          color: AppColors.purpleBlue,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          'Filtrar por:',
+                          style: TextStyle(
+                            color: AppColors.purpleBlue,
+                            fontSize: 18,
                           ),
-                          IconButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            icon: const Icon(
-                              Icons.close,
-                              color: AppColors.purpleBlue,
-                            ),
-                          ),
-                        ],
+                        ),
+                      ],
+                    ),
+                    IconButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      icon: const Icon(
+                        Icons.close,
+                        color: AppColors.purpleBlue,
                       ),
-                      const DropdownButtonWidget()
-                    ],
-                  ),
-                ));
+                    ),
+                  ],
+                ),
+                const DropdownButtonWidget()
+              ],
+            ),
+          ),
+        );
       },
       icon: const Icon(
         Icons.filter_alt,
