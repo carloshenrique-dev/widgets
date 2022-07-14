@@ -1,11 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_text_style.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
-import 'widgets/rich_text_widget.dart';
 
 class OtpPage extends StatefulWidget {
-  const OtpPage({super.key});
+  const OtpPage({Key? key}) : super(key: key);
 
   @override
   State<OtpPage> createState() => _OtpPageState();
@@ -14,13 +14,6 @@ class OtpPage extends StatefulWidget {
 class _OtpPageState extends State<OtpPage> {
   final List<TextEditingController> _textEditingController =
       <TextEditingController>[];
-  final _formKey = GlobalKey<FormState>();
-
-  @override
-  void dispose() {
-    _textEditingController.map((controller) => controller.dispose());
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +61,6 @@ class _OtpPageState extends State<OtpPage> {
                   height: 10,
                 ),
                 Form(
-                  key: _formKey,
                   child: SizedBox(
                     width: size.width,
                     child: Row(
@@ -80,18 +72,42 @@ class _OtpPageState extends State<OtpPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                RichTextWidget(
-                  title: 'Não recebeu o código de segurança?\n',
-                  link: 'Reenviar SMS',
-                  voidCallback: () {},
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: 'Não recebeu o código de segurança?\n',
+                    style: AppTextStyle.commonText,
+                    children: [
+                      TextSpan(
+                        text: 'Reenviar SMS',
+                        style: AppTextStyle.textLink,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            print('object');
+                          },
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                RichTextWidget(
-                  title: 'Não reconhece o número de telefone?\n',
-                  link: 'Editar número de telefone',
-                  voidCallback: () {},
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: 'Não reconhece o número de telefone?\n',
+                    style: AppTextStyle.commonText,
+                    children: [
+                      TextSpan(
+                        text: 'Editar número de telefone',
+                        style: AppTextStyle.textLink,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            print('object');
+                          },
+                      )
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 40,
@@ -99,13 +115,8 @@ class _OtpPageState extends State<OtpPage> {
                 SizedBox(
                   width: size.width,
                   height: 50,
-                  child: RetangularButtonWidget(
+                  child: const RetangularButtonWidget(
                     title: 'Confirmar',
-                    onPressed: () {
-                      final formValid =
-                          _formKey.currentState?.validate() ?? false;
-                      if (formValid) {}
-                    },
                   ),
                 ),
               ],
@@ -127,8 +138,8 @@ class _OtpPageState extends State<OtpPage> {
             textAlign: TextAlign.center,
             controller: _textEditingController[index],
             validator: Validatorless.multiple([
-              Validatorless.required(''),
-              Validatorless.number(''),
+              Validatorless.required('Necessario informar um numero'),
+              Validatorless.number('Informar apenas numeros'),
             ]),
             keyboardType: TextInputType.number,
           ),

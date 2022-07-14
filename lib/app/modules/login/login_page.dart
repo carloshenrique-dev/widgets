@@ -48,10 +48,10 @@ class LoginPage extends StatelessWidget {
                 height: 90,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     TextButton(
-                      onPressed: () => Modular.to.navigate('/'),
-                      child: const Text(
+                      onPressed: null,
+                      child: Text(
                         'Esqueci minha Senha',
                         style: TextStyle(
                             fontSize: 17, color: AppColors.purpleBlue),

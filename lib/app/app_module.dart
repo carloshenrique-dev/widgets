@@ -1,6 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'modules/boleto_generated/boleto_generated_module.dart';
 import 'modules/clientless_purchase/clientless_purchase_module.dart';
+import 'modules/configure_sensor/configure_sensor_module.dart';
+import 'modules/farm_data/farm_data_module.dart';
 import 'modules/fields/fields_module.dart';
 import 'modules/financial_data/financial_data_module.dart';
 import 'modules/login/login_module.dart';
@@ -33,6 +35,8 @@ class AppModule extends Module {
         ModuleRoute('/login/', module: LoginModule()),
         ModuleRoute('/welcome/', module: WelcomeModule()),
         ModuleRoute('/fields/', module: FieldsModule()),
+        ModuleRoute('/farmData/', module: FarmDataModule()),
+        ModuleRoute('/configureSensor/', module: ConfigureSensorModule()),
         ModuleRoute('/payment/', module: PaymentModule()),
       ];
 }
