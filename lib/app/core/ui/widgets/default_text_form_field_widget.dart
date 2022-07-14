@@ -6,6 +6,7 @@ class DefaultTextFormWidget extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? textInputType;
   final String? Function(String?)? validator;
+  final TextInputAction? textInputAction;
   const DefaultTextFormWidget({
     super.key,
     this.validator,
@@ -13,6 +14,7 @@ class DefaultTextFormWidget extends StatelessWidget {
     this.title,
     this.hintText,
     this.controller,
+    this.textInputAction,
   });
 
   @override
@@ -22,7 +24,7 @@ class DefaultTextFormWidget extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            title ?? 'CPF/Usuario',
+            title ?? 'Insira seus dados abaixo',
             style: const TextStyle(
               fontSize: 17,
               color: Colors.grey,
@@ -38,6 +40,7 @@ class DefaultTextFormWidget extends StatelessWidget {
           ),
           validator: validator,
           keyboardType: textInputType,
+          textInputAction: textInputAction,
         ),
       ],
     );

@@ -119,7 +119,7 @@ class _BoletoPageState extends State<BoletoPage> {
                         if (formValid) {}
                       },
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

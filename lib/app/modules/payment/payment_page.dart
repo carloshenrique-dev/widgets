@@ -10,47 +10,45 @@ class PaymentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Pagamento'),
-            titleSpacing: 20,
-            bottom: TabBar(
-              padding: EdgeInsets.zero,
-              isScrollable: true,
-              labelStyle: AppTextStyle.textLink,
-              physics: const BouncingScrollPhysics(),
-              tabs: [
-                SizedBox(
-                  width: width / 2.75,
-                  child: const Tab(
-                    text: 'Cartão de crédito',
-                  ),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Pagamento'),
+          titleSpacing: 20,
+          bottom: TabBar(
+            padding: EdgeInsets.zero,
+            isScrollable: true,
+            labelStyle: AppTextStyle.textLink,
+            physics: const BouncingScrollPhysics(),
+            tabs: [
+              SizedBox(
+                width: width / 2.75,
+                child: const Tab(
+                  text: 'Cartão de crédito',
                 ),
-                SizedBox(
-                  width: width / 6,
-                  child: const Tab(
-                    text: 'Boleto',
-                  ),
+              ),
+              SizedBox(
+                width: width / 6,
+                child: const Tab(
+                  text: 'Boleto',
                 ),
-                SizedBox(
-                  width: width / 7,
-                  child: const Tab(
-                    text: 'Pix',
-                  ),
+              ),
+              SizedBox(
+                width: width / 7,
+                child: const Tab(
+                  text: 'Pix',
                 ),
-              ],
-            ),
-          ),
-          body: const TabBarView(
-            children: [
-              CardPage(),
-              BoletoPage(),
-              PixPage(),
+              ),
             ],
           ),
+        ),
+        body: const TabBarView(
+          children: [
+            CardPage(),
+            BoletoPage(),
+            PixPage(),
+          ],
         ),
       ),
     );
