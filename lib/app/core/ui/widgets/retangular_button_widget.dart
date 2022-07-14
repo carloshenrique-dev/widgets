@@ -8,11 +8,11 @@ class RetangularButtonWidget extends StatelessWidget {
   final Color? color;
 
   const RetangularButtonWidget({
-    Key? key,
+    super.key,
     this.title,
     this.onPressed,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

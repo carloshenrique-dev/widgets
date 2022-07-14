@@ -4,10 +4,12 @@ class DefaultTextFormWidget extends StatelessWidget {
   final String? title;
   final String? hintText;
   final TextEditingController? controller;
+  final TextInputType? textInputType;
   final String? Function(String?)? validator;
   const DefaultTextFormWidget({
     super.key,
     this.validator,
+    this.textInputType,
     this.title,
     this.hintText,
     this.controller,
@@ -35,6 +37,7 @@ class DefaultTextFormWidget extends StatelessWidget {
             hintText: hintText,
           ),
           validator: validator,
+          keyboardType: textInputType,
         ),
       ],
     );

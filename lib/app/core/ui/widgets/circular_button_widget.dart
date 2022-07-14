@@ -8,11 +8,11 @@ class CircularButtonWidget extends StatelessWidget {
   final Color? color;
 
   const CircularButtonWidget({
-    Key? key,
+    super.key,
     this.title,
     this.onPressed,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
 
 class CardPage extends StatelessWidget {
+  const CardPage({super.key});
 
-  const CardPage({ Key? key }) : super(key: key);
-
-   @override
-   Widget build(BuildContext context) {
-       return Scaffold(
-           appBar: AppBar(title: const Text(''),),
-           body: Container(),
-       );
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      backgroundColor: AppColors.iceWhite,
+      body: Center(
+        child: Text('Card'),
+      ),
+    );
   }
 }

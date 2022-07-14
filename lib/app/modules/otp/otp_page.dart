@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_text_style.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
-
 import 'widgets/rich_text_widget.dart';
 
 class OtpPage extends StatefulWidget {
@@ -16,6 +15,12 @@ class _OtpPageState extends State<OtpPage> {
   final List<TextEditingController> _textEditingController =
       <TextEditingController>[];
   final _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _textEditingController.map((controller) => controller.dispose());
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
