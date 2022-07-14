@@ -8,6 +8,10 @@ class AppUI {
   static final ThemeData themeData = ThemeData(
     backgroundColor: AppColors.white,
     scaffoldBackgroundColor: AppColors.backgroundColor,
+    tabBarTheme: const TabBarTheme(
+      labelColor: AppColors.purpleBlue,
+      indicatorSize: TabBarIndicatorSize.label,
+    ),
     appBarTheme: AppBarTheme(
       elevation: 0,
       centerTitle: true,

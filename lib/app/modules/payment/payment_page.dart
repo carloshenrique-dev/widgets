@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/themes/app_text_style.dart';
 import 'package:widgets/app/modules/payment/boleto/boleto_page.dart';
 import 'package:widgets/app/modules/payment/card/card_page.dart';
@@ -21,6 +22,7 @@ class PaymentPage extends StatelessWidget {
             isScrollable: true,
             labelStyle: AppTextStyle.textLink,
             physics: const BouncingScrollPhysics(),
+            indicatorColor: AppColors.purpleBlue,
             tabs: [
               SizedBox(
                 width: width / 2.75,
