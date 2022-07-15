@@ -1,12 +1,9 @@
-// ignore_for_file: sized_box_for_whitespace
-
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/field_tile_popup_button.dart';
-
 import '../../core/ui/widgets/header_widget.dart';
 
-enum PopupOptions { Data, Remove }
+enum PopupOptions { data, remove }
 
 class FieldsPage extends StatefulWidget {
   const FieldsPage({Key? key}) : super(key: key);
@@ -24,7 +21,7 @@ class _FieldsPageState extends State<FieldsPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Talhões'),
@@ -73,7 +70,9 @@ class _FieldsPageState extends State<FieldsPage> {
                     Text(
                       plots[index],
                       style: const TextStyle(
-                          color: AppColors.navyBlue, fontSize: 20),
+                        color: AppColors.navyBlue,
+                        fontSize: 20,
+                      ),
                     ),
                   ],
                 ),

@@ -7,14 +7,16 @@ class ExpirationDateFormatter extends TextInputFormatter {
 
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     final newValueLength = newValue.text.length;
     var selectionIndex = newValue.selection.end;
 
     if (newValueLength > maxLength) {
       return oldValue;
     }
-    var substrInicio = 0;
+    const substrInicio = 0;
     var substrIndex = 0;
     final newText = StringBuffer();
 

@@ -6,12 +6,16 @@ class Header extends SliverPersistentHeaderDelegate {
   Header({required this.widget});
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return LayoutBuilder(
-      builder: ((context, constraints) => Container(
-          color: AppColors.white,
-          height: constraints.maxHeight,
-          child: widget)),
+      builder: (context, constraints) => Container(
+        color: AppColors.white,
+        height: constraints.maxHeight,
+        child: widget,
+      ),
     );
   }
 

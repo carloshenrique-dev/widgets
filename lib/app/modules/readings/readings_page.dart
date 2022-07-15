@@ -24,8 +24,7 @@ class ReadingsPage extends StatelessWidget {
             child: InkWell(
               child: IconButton(
                 splashRadius: 15,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.only(right: 0),
+                padding: EdgeInsets.zero,
                 iconSize: 25,
                 onPressed: () {},
                 icon: const Icon(Icons.house_outlined),
@@ -118,8 +117,10 @@ class ReadingsPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.8,
               child: OutlinedButton(
                 onPressed: () {},
-                child: const Text('Configurar Sensores',
-                    style: TextStyle(color: AppColors.purpleBlue)),
+                child: const Text(
+                  'Configurar Sensores',
+                  style: TextStyle(color: AppColors.purpleBlue),
+                ),
               ),
             ),
             const Expanded(

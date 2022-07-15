@@ -30,7 +30,10 @@ class PersonalDataPage extends StatelessWidget {
                       color: AppColors.white,
                       child: Container(
                         padding: const EdgeInsets.only(
-                            top: 45, left: 20, right: 20, bottom: 0),
+                          top: 45,
+                          left: 20,
+                          right: 20,
+                        ),
                         height: double.infinity,
                         width: double.infinity,
                         child: Column(

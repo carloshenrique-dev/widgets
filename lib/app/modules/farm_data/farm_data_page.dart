@@ -20,7 +20,7 @@ class _FarmDataPageState extends State<FarmDataPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dados da Fazenda'),
@@ -69,7 +69,9 @@ class _FarmDataPageState extends State<FarmDataPage> {
                     Text(
                       farms[index],
                       style: const TextStyle(
-                          color: AppColors.navyBlue, fontSize: 20),
+                        color: AppColors.navyBlue,
+                        fontSize: 20,
+                      ),
                     ),
                   ],
                 ),

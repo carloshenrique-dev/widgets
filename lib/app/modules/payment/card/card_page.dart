@@ -52,7 +52,7 @@ class _CardPageState extends State<CardPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return SafeArea(
       child: Scaffold(
@@ -194,10 +194,12 @@ class _CardPageState extends State<CardPage> {
                                 hintText: 'Digite aqui',
                                 controller: _cityController,
                                 validator: Validatorless.required(
-                                    'Informe sua cidade'),
+                                  'Informe sua cidade',
+                                ),
                                 inputFormatters: [
                                   FilteringTextInputFormatter.deny(
-                                      RegExp('[0-9]')),
+                                    RegExp('[0-9]'),
+                                  ),
                                 ],
                                 textInputType: TextInputType.text,
                               ),
@@ -211,11 +213,13 @@ class _CardPageState extends State<CardPage> {
                                 hintText: 'UF',
                                 controller: _stateController,
                                 validator: Validatorless.required(
-                                    'Informe seu estado'),
+                                  'Informe seu estado',
+                                ),
                                 textInputType: TextInputType.text,
                                 inputFormatters: [
                                   FilteringTextInputFormatter.deny(
-                                      RegExp('[0-9]')),
+                                    RegExp('[0-9]'),
+                                  ),
                                   LengthLimitingTextInputFormatter(2),
                                 ],
                               ),
@@ -260,7 +264,8 @@ class _CardPageState extends State<CardPage> {
                           controller: _addressNumberController,
                           validator: Validatorless.multiple([
                             Validatorless.required(
-                                'Digite o número do seu endereço'),
+                              'Digite o número do seu endereço',
+                            ),
                             Validatorless.number('Digite apenas números')
                           ]),
                           inputFormatters: [

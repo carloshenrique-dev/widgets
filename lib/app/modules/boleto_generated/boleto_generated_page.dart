@@ -11,7 +11,6 @@ class BoletoGeneratedPage extends StatelessWidget {
         title: const Text('Pagamento'),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(height: 40),
           const Text(
@@ -91,16 +90,18 @@ class BoletoGeneratedPage extends StatelessWidget {
               Text(
                 'Vencimento:',
                 style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.black),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.black,
+                ),
               ),
               Text(
                 '26/05',
                 style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.gray),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.gray,
+                ),
               ),
             ],
           ),

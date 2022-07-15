@@ -5,7 +5,10 @@ import 'package:widgets/app/core/ui/widgets/filter_bottom_sheet.dart';
 class HeaderWidget extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Container(

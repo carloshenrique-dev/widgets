@@ -9,7 +9,9 @@ class ClientlessPurchaseModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/',
-            child: (context, args) => const ClientlessPurchasePage())
+        ChildRoute(
+          '/',
+          child: (context, args) => const ClientlessPurchasePage(),
+        )
       ];
 }

@@ -27,7 +27,7 @@ class _BoletoPageState extends State<BoletoPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.iceWhite,
       body: Padding(

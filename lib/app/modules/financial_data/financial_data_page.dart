@@ -55,9 +55,7 @@ class FinancialDataPage extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.9,
                       child: Card(
                         elevation: 0,
-                        child: Column(
-                          children: const [],
-                        ),
+                        child: Column(),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -70,9 +68,7 @@ class FinancialDataPage extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.9,
                       child: Card(
                         elevation: 0,
-                        child: Column(
-                          children: const [],
-                        ),
+                        child: Column(),
                       ),
                     ),
                   ],

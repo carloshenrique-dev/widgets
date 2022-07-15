@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
-class AppTextStyle {
+mixin AppTextStyle {
   static const TextStyle buttonText = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,

@@ -16,7 +16,7 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
 
   @override
   Widget build(BuildContext context) {
-    Color getTextColor(bool value) {
+    Color getTextColor({required bool value}) {
       if (!value) {
         return Colors.grey;
       } else {
@@ -43,12 +43,15 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
                 collapsedIconColor: AppColors.navyBlue,
                 children: statusItem.map((item) {
                   _boolChecked.add(false);
-                  int index_ = statusItem.indexOf(item);
+                  final int index_ = statusItem.indexOf(item);
                   return CheckboxListTile(
-                    title: Text(item,
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: getTextColor(_boolChecked[index_]))),
+                    title: Text(
+                      item,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: getTextColor(value: _boolChecked[index_]),
+                      ),
+                    ),
                     value: _boolChecked[index_],
                     contentPadding: const EdgeInsets.all(8),
                     activeColor: AppColors.purpleBlue,

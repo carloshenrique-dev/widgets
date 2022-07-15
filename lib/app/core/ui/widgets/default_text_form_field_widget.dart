@@ -7,7 +7,7 @@ class DefaultTextFormWidget extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? textInputType;
   final String? Function(String?)? validator;
-  final TextInputAction? textInputAction;
+  final TextInputAction textInputAction;
   final List<TextInputFormatter>? inputFormatters;
 
   const DefaultTextFormWidget({
@@ -17,7 +17,7 @@ class DefaultTextFormWidget extends StatelessWidget {
     this.title,
     this.hintText,
     this.controller,
-    this.textInputAction,
+    this.textInputAction = TextInputAction.next,
     this.inputFormatters,
   });
 
