@@ -50,6 +50,10 @@ class _BoletoPageState extends State<BoletoPage> {
                         hintText: 'Digite aqui',
                         validator: Validatorless.required('Digite seu nome'),
                         controller: _nameController,
+                        textInputType: TextInputType.text,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.deny(RegExp('[0-9]')),
+                        ],
                       ),
                       const SizedBox(
                         height: 20,
@@ -60,8 +64,7 @@ class _BoletoPageState extends State<BoletoPage> {
                         textInputType: TextInputType.number,
                         controller: _cpfController,
                         validator: Validatorless.multiple([
-                          Validatorless.required('Digite seu CPF'),
-                          Validatorless.number('Digite apenas números'),
+                          Validatorless.required('Informe seu CPF'),
                           Validatorless.cpf('Informe seu CPF'),
                         ]),
                         inputFormatters: [
