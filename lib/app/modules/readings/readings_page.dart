@@ -37,7 +37,7 @@ class ReadingsPage extends StatelessWidget {
       ),
       drawer: const DrawerMenu(),
       body: Container(
-        color: AppColors.iceWhite,
+        color: AppColors.backgroundColor,
         child: Column(
           children: [
             Container(

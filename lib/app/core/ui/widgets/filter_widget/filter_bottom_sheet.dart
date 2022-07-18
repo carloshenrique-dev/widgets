@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:widgets/app/core/ui/widgets/dropdown_button_widget.dart';
-
-import '../themes/app_colors.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
+import 'expansion_tile_widget.dart';
 
 class FilterBottomSheet extends StatefulWidget {
   const FilterBottomSheet({Key? key}) : super(key: key);
@@ -11,6 +10,11 @@ class FilterBottomSheet extends StatefulWidget {
 }
 
 class _FilterBottomSheetState extends State<FilterBottomSheet> {
+  final List<bool> _itemChecked = <bool>[];
+  final List<String> tileItems = ['Status', 'Fazenda', 'Talhão', 'Cultura'];
+  final List<String> items = ['Em trânsito', 'Recebido', 'Registrado'];
+  String? selectedItem = 'Status';
+
   @override
   Widget build(BuildContext context) {
     return IconButton(
@@ -54,7 +58,18 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     ),
                   ],
                 ),
-                const DropdownButtonWidget()
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: tileItems.length,
+                    itemBuilder: (ctx, index) {
+                      return ExpansionTileWidget(
+                        itemChecked: _itemChecked,
+                        items: items,
+                        title: tileItems[index],
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),

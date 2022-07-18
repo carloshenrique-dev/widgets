@@ -13,7 +13,7 @@ class PersonalDataPage extends StatelessWidget {
           title: const Text('Dados Pessoais'),
         ),
         body: Container(
-          color: AppColors.iceWhite,
+          color: AppColors.backgroundColor,
           child: Column(
             children: [
               Container(

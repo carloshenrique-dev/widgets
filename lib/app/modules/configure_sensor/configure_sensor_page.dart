@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import '../../core/ui/widgets/field_tile_popup_button.dart';
-import '../../core/ui/widgets/filter_bottom_sheet.dart';
+import '../../core/ui/widgets/filter_widget/filter_bottom_sheet.dart';
 import '../../core/ui/widgets/sensor_edit_bottom_sheet.dart';
 
 class ConfigureSensorPage extends StatefulWidget {
@@ -40,7 +40,7 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
         title: const Text("Configurar Sensores"),
       ),
       body: Container(
-        decoration: const BoxDecoration(color: AppColors.iceWhite),
+        decoration: const BoxDecoration(color: AppColors.backgroundColor),
         child: Column(
           children: [
             Container(

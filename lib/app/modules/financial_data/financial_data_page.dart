@@ -42,7 +42,7 @@ class FinancialDataPage extends StatelessWidget {
             Expanded(
               child: Container(
                 width: double.infinity,
-                color: AppColors.iceWhite,
+                color: AppColors.backgroundColor,
                 child: Column(
                   children: [
                     const SizedBox(height: 20),

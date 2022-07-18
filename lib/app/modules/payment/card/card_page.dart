@@ -56,7 +56,7 @@ class _CardPageState extends State<CardPage> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.iceWhite,
+        backgroundColor: AppColors.backgroundColor,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: SingleChildScrollView(
