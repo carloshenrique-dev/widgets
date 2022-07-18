@@ -19,7 +19,7 @@ class BottomSheetHeader extends StatelessWidget {
               visible: icon != null,
               child: Icon(icon),
             ),
-            const SizedBox(width: 10),
+            const SizedBox(width: 20),
             Text(
               title,
               style: const TextStyle(

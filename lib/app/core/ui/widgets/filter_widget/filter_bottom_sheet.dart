@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
+import 'package:widgets/app/core/ui/widgets/bottom_sheet_header.dart';
 import 'expansion_tile_widget.dart';
 
 class FilterBottomSheet extends StatefulWidget {
@@ -30,33 +31,8 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             padding: const EdgeInsets.all(10),
             child: Column(
               children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.filter_alt,
-                          color: AppColors.purpleBlue,
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          'Filtrar por:',
-                          style: TextStyle(
-                            color: AppColors.purpleBlue,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      icon: const Icon(
-                        Icons.close,
-                        color: AppColors.purpleBlue,
-                      ),
-                    ),
-                  ],
+                const BottomSheetHeader(
+                  title: 'Filtrar por:',
                 ),
                 Expanded(
                   child: ListView.builder(
@@ -76,7 +52,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
         );
       },
       icon: const Icon(
-        Icons.filter_alt,
+        Icons.filter_list,
         color: AppColors.purpleBlue,
         size: 30,
       ),
