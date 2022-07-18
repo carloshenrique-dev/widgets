@@ -7,7 +7,9 @@ class CompanyCard extends StatefulWidget {
   final String assetName;
   final String title;
   final String date;
+  final String size;
   const CompanyCard({
+    required this.size,
     required this.value,
     this.onChanged,
     required this.assetName,
@@ -71,7 +73,7 @@ class _CompanyCardState extends State<CompanyCard> {
                   const Text('Volume de Dados:',
                       style: TextStyle(fontSize: 16, color: AppColors.black)),
                   Text(
-                    widget.date,
+                    widget.size,
                     style: const TextStyle(fontSize: 16, color: AppColors.gray),
                   ),
                 ],

@@ -57,6 +57,7 @@ class _DataSharingPageState extends State<DataSharingPage> {
                   onChanged: (check) => setState(() => _checkBayer = check!),
                   assetName: 'assets/images/bayer_logo.png',
                   date: DateFormat('dd/MM/yyyy').format(date),
+                  size: '10MB',
                 ),
                 const SizedBox(height: 15),
                 CompanyCard(
@@ -65,6 +66,7 @@ class _DataSharingPageState extends State<DataSharingPage> {
                   onChanged: (check) => setState(() => _checkEmbrapa = check!),
                   assetName: 'assets/images/embrapa_logo.png',
                   date: DateFormat('dd/MM/yyyy').format(date),
+                  size: '10MB',
                 ),
                 const SizedBox(height: 15),
                 CompanyCard(
@@ -73,6 +75,7 @@ class _DataSharingPageState extends State<DataSharingPage> {
                   onChanged: (check) => setState(() => _checkBunge = check!),
                   assetName: 'assets/images/bunge_logo.png',
                   date: DateFormat('dd/MM/yyyy').format(date),
+                  size: '10MB',
                 ),
               ],
             ),
