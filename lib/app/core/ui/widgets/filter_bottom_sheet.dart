@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets/app/core/ui/widgets/bottom_sheet_header.dart';
 import 'package:widgets/app/core/ui/widgets/dropdown_button_widget.dart';
 
 import '../themes/app_colors.dart';
@@ -24,43 +25,18 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
           builder: (context) => Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.filter_alt,
-                          color: AppColors.purpleBlue,
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          'Filtrar por:',
-                          style: TextStyle(
-                            color: AppColors.purpleBlue,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      icon: const Icon(
-                        Icons.close,
-                        color: AppColors.purpleBlue,
-                      ),
-                    ),
-                  ],
+              children: const <Widget>[
+                BottomSheetHeader(
+                  title: 'Filtrar por:',
                 ),
-                const DropdownButtonWidget()
+                DropdownButtonWidget()
               ],
             ),
           ),
         );
       },
       icon: const Icon(
-        Icons.filter_alt,
+        Icons.filter_list,
         color: AppColors.purpleBlue,
         size: 30,
       ),

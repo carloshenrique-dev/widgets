@@ -1,35 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:widgets/app/core/ui/widgets/bottom_sheet_header.dart';
 
 import '../themes/app_colors.dart';
+import 'bottom_sheet_header.dart';
 
-class SensorEditBottomSheet extends StatefulWidget {
-  final String? sensorName;
-
-  const SensorEditBottomSheet({
-    Key? key,
-    required this.sensorName,
-  }) : super(key: key);
+class RegisterSensorBottomSheet extends StatefulWidget {
+  const RegisterSensorBottomSheet({Key? key}) : super(key: key);
 
   @override
-  State<SensorEditBottomSheet> createState() => _SensorEditBottomSheetState();
+  State<RegisterSensorBottomSheet> createState() =>
+      _RegisterSensorBottomSheetState();
 }
 
-class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
+class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
+  TextEditingController? controller;
+  List<String> dropdownList = ['01', '02', '03'];
+  String? dropdownValue = '01';
+
+  List<String> talhao = ['Talhão', 'df'];
+  String? talhaoValue = 'Talhão';
+  List<String> farm = ['Fazenda', 'Foz'];
+  String? farmValue = 'Fazenda';
+
   @override
   Widget build(BuildContext context) {
-    List<String> dropdownList = ['01', '02', '03'];
-    String? dropdownValue = '01';
-
-    List<String> talhao = ['Talhão', 'df'];
-    String? talhaoValue = 'Talhão';
-    List<String> farm = ['Fazenda', 'Foz'];
-    String? farmValue = 'Fazenda';
-
     Size size = MediaQuery.of(context).size;
 
-    return TextButton(
+    return IconButton(
+      icon: const Icon(
+        Icons.add,
+        color: AppColors.purpleBlue,
+        size: 30,
+      ),
       onPressed: () {
         showModalBottomSheet(
           context: context,
@@ -49,19 +50,10 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
-                        children: [
-                          const Icon(
-                            FontAwesomeIcons.locationDot,
-                            color: AppColors.green,
-                          ),
-                          const SizedBox(width: 10),
-                          Text(
-                            widget.sensorName ?? '',
-                            style: const TextStyle(
-                              color: AppColors.green,
-                              fontSize: 20,
-                            ),
-                          ),
+                        children: const [
+                          // TextFormField(
+                          //   controller: ,
+                          // ),
                         ],
                       ),
                       Row(
@@ -75,8 +67,8 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
                           ),
                           const SizedBox(width: 10),
                           SizedBox(
-                            width: 60,
-                            child: DropdownButtonFormField<String>(
+                            width: 50,
+                            child: DropdownButton<String>(
                               isExpanded: true,
                               icon: const Icon(
                                 Icons.expand_more,
@@ -254,13 +246,6 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
           ),
         );
       },
-      child: Text(
-        widget.sensorName ?? '',
-        style: const TextStyle(
-          color: Colors.grey,
-          fontSize: 18,
-        ),
-      ),
     );
   }
 }

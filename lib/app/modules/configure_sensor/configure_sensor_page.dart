@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
+import 'package:widgets/app/core/ui/widgets/header.dart';
+import 'package:widgets/app/core/ui/widgets/register_sensor_bottom_sheet.dart';
 
 import '../../core/ui/widgets/field_tile_popup_button.dart';
 import '../../core/ui/widgets/filter_bottom_sheet.dart';
@@ -18,8 +20,10 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
   List sensorsList = [
     {'DJ236546584': 'Em Trânsito'},
     {'DJ222222222': 'Recebido'},
-    {'DJ111111111': 'Registrado'}
+    {'DJ333333333': 'Registrado'},
+    {'DJ444444444': 'Em Trânsito'},
   ];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -39,86 +43,84 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
         title: const Text("Configurar Sensores"),
       ),
       body: Container(
+        // height: size.height,
         decoration: const BoxDecoration(color: AppColors.iceWhite),
-        child: Column(
-          children: [
-            Container(
-              color: AppColors.white,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Expanded(
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.search,
-                            size: 30,
+        child: CustomScrollView(
+          slivers: [
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: Header(
+                maxHeight: 80,
+                minHeight: 80,
+                widget: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Expanded(
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.search,
+                              color: AppColors.purpleBlue,
+                              size: 30,
+                            ),
                           ),
+                          controller: widget.controller,
                         ),
-                        controller: widget.controller,
                       ),
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.add,
-                            color: AppColors.purpleBlue,
-                            size: 30,
-                          ),
-                        ),
-                        const FilterBottomSheet(),
-                      ],
-                    ),
-                  ],
+                      Row(
+                        children: const [
+                          RegisterSensorBottomSheet(),
+                          FilterBottomSheet(),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: size.width / 2.5,
-                              child: const Text(
-                                'Sensores',
-                                style: TextStyle(
-                                    fontSize: 18, color: AppColors.navyBlue),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: const [
+                              Expanded(
+                                child: Text(
+                                  'Sensores',
+                                  style: TextStyle(
+                                      fontSize: 18, color: AppColors.navyBlue),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: size.width / 2.5,
-                              child: const Text(
-                                'Status',
-                                style: TextStyle(
-                                    fontSize: 18, color: AppColors.navyBlue),
+                              Expanded(
+                                child: Text(
+                                  'Status',
+                                  style: TextStyle(
+                                      fontSize: 18, color: AppColors.navyBlue),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        const Divider(
-                          height: 40,
-                          thickness: 1.2,
-                          color: AppColors.purpleBlue,
-                        ),
-                        Expanded(
-                          child: ListView.builder(
-                            itemCount: 3,
+                            ],
+                          ),
+                          const Divider(
+                            height: 40,
+                            thickness: 1.2,
+                            color: AppColors.purpleBlue,
+                          ),
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: sensorsList.length,
                             itemBuilder: (ctx, index) {
                               String? status = sensorsList[index]
                                   .values
@@ -133,28 +135,41 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  SensorEditBottomSheet(
-                                    sensorName: sensor,
-                                  ),
-                                  Text(
-                                    status,
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: getTextColor(status),
+                                  Expanded(
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: SensorEditBottomSheet(
+                                        sensorName: sensor,
+                                      ),
                                     ),
                                   ),
-                                  const FieldTilePopupButton()
+                                  Expanded(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          status,
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: getTextColor(status),
+                                          ),
+                                        ),
+                                        const FieldTilePopupButton(),
+                                      ],
+                                    ),
+                                  )
                                 ],
                               );
                             },
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ),
+                  )
+                ],
               ),
-            )
+            ),
           ],
         ),
       ),
