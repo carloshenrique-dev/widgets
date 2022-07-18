@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:widgets/app/modules/config_user/config_user_page.dart';
 import 'package:widgets/app/modules/data_sharing/data_sharing_module.dart';
-import 'package:widgets/app/modules/data_sharing/data_sharing_page.dart';
 import 'modules/boleto_generated/boleto_generated_module.dart';
 import 'modules/clientless_purchase/clientless_purchase_module.dart';
 import 'modules/configure_sensor/configure_sensor_module.dart';
@@ -25,7 +25,7 @@ class AppModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (context, args) => const DataSharingPage()),
+        ChildRoute('/', child: (context, args) => const ConfigUserPage()),
         //ChildRoute('/', child: (context, args) => const SplashPage()),
         ModuleRoute('/otp/', module: OtpModule()),
         ModuleRoute('/register/', module: RegisterModule()),

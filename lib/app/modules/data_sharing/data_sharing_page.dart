@@ -20,87 +20,90 @@ class _DataSharingPageState extends State<DataSharingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.iceWhite,
-      appBar: AppBar(
-        title: const Text('Compartilhamento'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        child: CustomScrollView(slivers: [
-          SliverPersistentHeader(
-            pinned: true,
-            delegate: Header(
-              color: AppColors.iceWhite,
-              max: 80,
-              min: 80,
-              widget: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('Compartilhamento de Dados',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 10),
-                  Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui massa, ullamcorper',
-                    style: TextStyle(fontSize: 16, color: AppColors.gray),
-                  )
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.iceWhite,
+        appBar: AppBar(
+          title: const Text('Compartilhamento'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          child: CustomScrollView(slivers: [
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: Header(
+                color: AppColors.iceWhite,
+                max: 80,
+                min: 80,
+                widget: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text('Compartilhamento de Dados',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                    SizedBox(height: 10),
+                    Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui massa, ullamcorper',
+                      style: TextStyle(fontSize: 16, color: AppColors.gray),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                <Widget>[
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Checkbox(
+                        checkColor: AppColors.white,
+                        activeColor: AppColors.purpleBlue,
+                        value: _checkAll,
+                        onChanged: (check) => setState(() {
+                          _checkAll = check!;
+                          _checkBayer = check;
+                          _checkEmbrapa = check;
+                          _checkBunge = check;
+                        }),
+                      ),
+                      const Text('Marcar todos',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                  CompanyCard(
+                    title: 'Bayer do Brasil',
+                    value: _checkBayer,
+                    onChanged: (check) => setState(() => _checkBayer = check!),
+                    assetName: 'assets/images/bayer_logo.png',
+                    date: DateFormat('dd/MM/yyyy').format(date),
+                    size: '10MB',
+                  ),
+                  const SizedBox(height: 15),
+                  CompanyCard(
+                    title: 'Embrapa',
+                    value: _checkEmbrapa,
+                    onChanged: (check) =>
+                        setState(() => _checkEmbrapa = check!),
+                    assetName: 'assets/images/embrapa_logo.png',
+                    date: DateFormat('dd/MM/yyyy').format(date),
+                    size: '10MB',
+                  ),
+                  const SizedBox(height: 15),
+                  CompanyCard(
+                    title: 'Bunge',
+                    value: _checkBunge,
+                    onChanged: (check) => setState(() => _checkBunge = check!),
+                    assetName: 'assets/images/bunge_logo.png',
+                    date: DateFormat('dd/MM/yyyy').format(date),
+                    size: '10MB',
+                  ),
                 ],
               ),
             ),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              <Widget>[
-                const SizedBox(height: 20),
-                Row(
-                  children: [
-                    Checkbox(
-                      checkColor: AppColors.white,
-                      activeColor: AppColors.purpleBlue,
-                      value: _checkAll,
-                      onChanged: (check) => setState(() {
-                        _checkAll = check!;
-                        _checkBayer = check;
-                        _checkEmbrapa = check;
-                        _checkBunge = check;
-                      }),
-                    ),
-                    const Text('Marcar todos',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                  ],
-                ),
-                CompanyCard(
-                  title: 'Bayer do Brasil',
-                  value: _checkBayer,
-                  onChanged: (check) => setState(() => _checkBayer = check!),
-                  assetName: 'assets/images/bayer_logo.png',
-                  date: DateFormat('dd/MM/yyyy').format(date),
-                  size: '10MB',
-                ),
-                const SizedBox(height: 15),
-                CompanyCard(
-                  title: 'Embrapa',
-                  value: _checkEmbrapa,
-                  onChanged: (check) => setState(() => _checkEmbrapa = check!),
-                  assetName: 'assets/images/embrapa_logo.png',
-                  date: DateFormat('dd/MM/yyyy').format(date),
-                  size: '10MB',
-                ),
-                const SizedBox(height: 15),
-                CompanyCard(
-                  title: 'Bunge',
-                  value: _checkBunge,
-                  onChanged: (check) => setState(() => _checkBunge = check!),
-                  assetName: 'assets/images/bunge_logo.png',
-                  date: DateFormat('dd/MM/yyyy').format(date),
-                  size: '10MB',
-                ),
-              ],
-            ),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }
