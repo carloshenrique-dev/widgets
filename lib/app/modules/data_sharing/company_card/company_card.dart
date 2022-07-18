@@ -36,6 +36,8 @@ class _CompanyCardState extends State<CompanyCard> {
           Row(
             children: [
               Checkbox(
+                checkColor: AppColors.white,
+                activeColor: AppColors.purpleBlue,
                 value: widget.value,
                 onChanged: widget.onChanged,
               ),

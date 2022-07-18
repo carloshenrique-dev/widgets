@@ -34,17 +34,37 @@ class _DataSharingPageState extends State<DataSharingPage> {
               color: AppColors.iceWhite,
               max: 80,
               min: 80,
-              widget: Column(),
+              widget: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text('Compartilhamento de Dados',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 10),
+                  Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui massa, ullamcorper',
+                    style: TextStyle(fontSize: 16, color: AppColors.gray),
+                  )
+                ],
+              ),
             ),
           ),
           SliverList(
             delegate: SliverChildListDelegate(
               <Widget>[
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     Checkbox(
+                      checkColor: AppColors.white,
+                      activeColor: AppColors.purpleBlue,
                       value: _checkAll,
-                      onChanged: (check) => setState(() => _checkAll = check!),
+                      onChanged: (check) => setState(() {
+                        _checkAll = check!;
+                        _checkBayer = check;
+                        _checkEmbrapa = check;
+                        _checkBunge = check;
+                      }),
                     ),
                     const Text('Marcar todos',
                         style: TextStyle(
