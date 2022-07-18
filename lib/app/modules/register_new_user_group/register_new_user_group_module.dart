@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:widgets/app/modules/clientless_purchase/clientless_purchase_page.dart';
+import 'register_new_user_group_page.dart';
 
-class ClientlessPurchaseModule extends Module {
+class RegisterNewUserGroupModule extends Module {
   @override
   List<Bind> get binds => [
         //BlocBind.lazySingleton((i) => OtpController()),
@@ -11,7 +11,7 @@ class ClientlessPurchaseModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           '/',
-          child: (context, args) => const ClientlessPurchasePage(),
+          child: (context, args) => const RegisterNewUserGroupPage(),
         )
       ];
 }

@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
+import 'package:widgets/app/core/ui/widgets/field_tile_popup_button.dart';
 import 'package:widgets/app/core/ui/widgets/header.dart';
 import 'package:widgets/app/core/ui/widgets/register_sensor_bottom_sheet.dart';
-
-import '../../core/ui/widgets/field_tile_popup_button.dart';
-import '../../core/ui/widgets/filter_bottom_sheet.dart';
-import '../../core/ui/widgets/sensor_edit_bottom_sheet.dart';
+import 'package:widgets/app/core/ui/widgets/sensor_edit_bottom_sheet.dart';
+import '../../core/ui/widgets/filter_widget/filter_bottom_sheet.dart';
 
 class ConfigureSensorPage extends StatefulWidget {
-  final TextEditingController? controller;
-
-  const ConfigureSensorPage({Key? key, this.controller}) : super(key: key);
+  const ConfigureSensorPage({
+    super.key,
+  });
 
   @override
   State<ConfigureSensorPage> createState() => _ConfigureSensorPageState();
 }
 
 class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
+  final TextEditingController _controller = TextEditingController();
+
   List sensorsList = [
     {'DJ236546584': 'Em Trânsito'},
     {'DJ222222222': 'Recebido'},
@@ -26,7 +27,7 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     Color getTextColor(String? value) {
       if (value == 'Em Trânsito') {
@@ -43,8 +44,7 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
         title: const Text("Configurar Sensores"),
       ),
       body: Container(
-        // height: size.height,
-        decoration: const BoxDecoration(color: AppColors.iceWhite),
+        decoration: const BoxDecoration(color: AppColors.backgroundColor),
         child: CustomScrollView(
           slivers: [
             SliverPersistentHeader(
@@ -66,7 +66,7 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                               size: 30,
                             ),
                           ),
-                          controller: widget.controller,
+                          controller: _controller,
                         ),
                       ),
                       Row(
@@ -100,14 +100,18 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                                 child: Text(
                                   'Sensores',
                                   style: TextStyle(
-                                      fontSize: 18, color: AppColors.navyBlue),
+                                    fontSize: 18,
+                                    color: AppColors.navyBlue,
+                                  ),
                                 ),
                               ),
                               Expanded(
                                 child: Text(
                                   'Status',
                                   style: TextStyle(
-                                      fontSize: 18, color: AppColors.navyBlue),
+                                    fontSize: 18,
+                                    color: AppColors.navyBlue,
+                                  ),
                                 ),
                               ),
                             ],
@@ -122,11 +126,11 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount: sensorsList.length,
                             itemBuilder: (ctx, index) {
-                              String? status = sensorsList[index]
+                              final String status = sensorsList[index]
                                   .values
                                   .toString()
                                   .replaceAll(RegExp('[()]'), '');
-                              String? sensor = sensorsList[index]
+                              final String sensor = sensorsList[index]
                                   .keys
                                   .toString()
                                   .replaceAll(RegExp('[()]'), '');

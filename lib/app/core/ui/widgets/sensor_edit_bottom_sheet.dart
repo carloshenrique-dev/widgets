@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:widgets/app/core/ui/widgets/bottom_sheet_header.dart';
-
 import '../themes/app_colors.dart';
 
 class SensorEditBottomSheet extends StatefulWidget {
@@ -19,15 +18,15 @@ class SensorEditBottomSheet extends StatefulWidget {
 class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
   @override
   Widget build(BuildContext context) {
-    List<String> dropdownList = ['01', '02', '03'];
+    final List<String> dropdownList = ['01', '02', '03'];
     String? dropdownValue = '01';
 
-    List<String> talhao = ['Talhão', 'df'];
+    final List<String> talhao = ['Talhão', 'df'];
     String? talhaoValue = 'Talhão';
-    List<String> farm = ['Fazenda', 'Foz'];
+    final List<String> farm = ['Fazenda', 'Foz'];
     String? farmValue = 'Fazenda';
 
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return TextButton(
       onPressed: () {

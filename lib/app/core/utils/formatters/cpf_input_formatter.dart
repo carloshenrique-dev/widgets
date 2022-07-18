@@ -4,7 +4,9 @@ import 'package:flutter/services.dart';
 class CpfInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     final newValueLength = newValue.text.length;
     var selectionIndex = newValue.selection.end;
 

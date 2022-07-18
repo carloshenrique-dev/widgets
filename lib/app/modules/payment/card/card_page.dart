@@ -7,6 +7,7 @@ import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart'
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
 import 'package:widgets/app/core/utils/formatters/cep_input_formatter.dart';
 import 'package:widgets/app/core/utils/formatters/cpf_input_formatter.dart';
+import 'package:widgets/app/core/utils/formatters/expiration_date_formatter.dart';
 
 class CardPage extends StatefulWidget {
   const CardPage({super.key});
@@ -51,11 +52,11 @@ class _CardPageState extends State<CardPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.iceWhite,
+        backgroundColor: AppColors.backgroundColor,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: SingleChildScrollView(
@@ -77,12 +78,14 @@ class _CardPageState extends State<CardPage> {
                           hintText: 'Digite aqui',
                           validator: Validatorless.multiple([
                             Validatorless.required('Digite o número do cartão'),
-                            Validatorless.number('Digite apenas números')
+                            Validatorless.number('Digite apenas números'),
                           ]),
                           controller: _cardNumberController,
                           inputFormatters: [
                             FilteringTextInputFormatter.digitsOnly,
+                            LengthLimitingTextInputFormatter(16),
                           ],
+                          textInputType: TextInputType.number,
                         ),
                         const SizedBox(
                           height: 20,
@@ -94,6 +97,10 @@ class _CardPageState extends State<CardPage> {
                           validator: Validatorless.required(
                             'Informe o nome impresso no cartão',
                           ),
+                          textInputType: TextInputType.text,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.deny(RegExp('[0-9]')),
+                          ],
                         ),
                         const SizedBox(
                           height: 20,
@@ -105,12 +112,15 @@ class _CardPageState extends State<CardPage> {
                               child: DefaultTextFormWidget(
                                 title: 'Validade',
                                 hintText: 'MM/AA',
-                                textInputType: TextInputType.number,
+                                textInputType: TextInputType.datetime,
                                 controller: _expirationDateController,
-                                validator: Validatorless.multiple([
-                                  Validatorless.required('Informe a validade'),
-                                  Validatorless.number('Digite apenas números')
-                                ]),
+                                validator: Validatorless.required(
+                                  'Informe a validade',
+                                ),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly,
+                                  ExpirationDateFormatter(),
+                                ],
                               ),
                             ),
                             const SizedBox(
@@ -126,6 +136,10 @@ class _CardPageState extends State<CardPage> {
                                   Validatorless.required('Informe seu CVV'),
                                   Validatorless.number('Digite apenas números')
                                 ]),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly,
+                                  LengthLimitingTextInputFormatter(3),
+                                ],
                               ),
                             ),
                           ],
@@ -180,7 +194,14 @@ class _CardPageState extends State<CardPage> {
                                 hintText: 'Digite aqui',
                                 controller: _cityController,
                                 validator: Validatorless.required(
-                                    'Informe sua cidade'),
+                                  'Informe sua cidade',
+                                ),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.deny(
+                                    RegExp('[0-9]'),
+                                  ),
+                                ],
+                                textInputType: TextInputType.text,
                               ),
                             ),
                             const SizedBox(
@@ -192,7 +213,15 @@ class _CardPageState extends State<CardPage> {
                                 hintText: 'UF',
                                 controller: _stateController,
                                 validator: Validatorless.required(
-                                    'Informe seu estado'),
+                                  'Informe seu estado',
+                                ),
+                                textInputType: TextInputType.text,
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.deny(
+                                    RegExp('[0-9]'),
+                                  ),
+                                  LengthLimitingTextInputFormatter(2),
+                                ],
                               ),
                             ),
                           ],
@@ -206,6 +235,10 @@ class _CardPageState extends State<CardPage> {
                           controller: _neighborhoodController,
                           validator:
                               Validatorless.required('Informe seu bairro'),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.deny(RegExp('[0-9]')),
+                          ],
+                          textInputType: TextInputType.text,
                         ),
                         const SizedBox(
                           height: 20,
@@ -216,6 +249,10 @@ class _CardPageState extends State<CardPage> {
                           controller: _adressController,
                           validator:
                               Validatorless.required('Informe seu logradouro'),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.deny(RegExp('[0-9]')),
+                          ],
+                          textInputType: TextInputType.text,
                         ),
                         const SizedBox(
                           height: 20,
@@ -225,8 +262,16 @@ class _CardPageState extends State<CardPage> {
                           hintText: '000',
                           textInputType: TextInputType.number,
                           controller: _addressNumberController,
-                          validator: Validatorless.required(
-                              'Digite o número do seu endereço'),
+                          validator: Validatorless.multiple([
+                            Validatorless.required(
+                              'Digite o número do seu endereço',
+                            ),
+                            Validatorless.number('Digite apenas números')
+                          ]),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly,
+                            LengthLimitingTextInputFormatter(6),
+                          ],
                         ),
                         const SizedBox(
                           height: 20,
@@ -234,10 +279,13 @@ class _CardPageState extends State<CardPage> {
                         DefaultTextFormWidget(
                           title: 'Complemento',
                           hintText: 'Digite aqui',
-                          textInputType: TextInputType.number,
                           controller: _addressLine2Controller,
                           validator:
                               Validatorless.required('Digite seu complemento'),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.deny(RegExp('[0-9]')),
+                          ],
+                          textInputType: TextInputType.text,
                         ),
                       ],
                     ),
