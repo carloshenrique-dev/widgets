@@ -78,12 +78,9 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                       Row(
                         children: [
                           RegisterSensorBottomSheet(
-                            sensorNumber: dropdownValue,
                             sensorNumberList: dropdownList,
                             fieldList: talhao,
-                            fieldValue: talhaoValue,
                             farmList: farm,
-                            farmValue: farmValue,
                           ),
                           const FilterBottomSheet(),
                         ],
@@ -157,12 +154,9 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                                       alignment: Alignment.centerLeft,
                                       child: SensorEditBottomSheet(
                                         sensorName: sensor,
-                                        sensorNumber: dropdownValue,
                                         sensorNumberList: dropdownList,
                                         fieldList: talhao,
-                                        fieldValue: talhaoValue,
                                         farmList: farm,
-                                        farmValue: farmValue,
                                       ),
                                     ),
                                   ),

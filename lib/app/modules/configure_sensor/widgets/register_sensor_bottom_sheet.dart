@@ -5,23 +5,17 @@ import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
 import '../../../core/ui/themes/app_colors.dart';
 
 class RegisterSensorBottomSheet extends StatefulWidget {
-  String? sensorName;
-  String? fieldValue;
-  String? farmValue;
-  String? sensorNumber;
+  final String? sensorName;
   final List<String> sensorNumberList;
   final List<String> fieldList;
   final List<String> farmList;
 
-  RegisterSensorBottomSheet({
+  const RegisterSensorBottomSheet({
     super.key,
     this.sensorName = '',
     required this.sensorNumberList,
-    required this.sensorNumber,
     required this.fieldList,
-    required this.fieldValue,
     required this.farmList,
-    required this.farmValue,
   });
 
   @override
@@ -137,7 +131,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                                 color: AppColors.purpleBlue,
                               ),
                               isExpanded: true,
-                              value: widget.sensorNumber,
+                              value: '01',
                               items: widget.sensorNumberList
                                   .map((dropdownStringItem) {
                                 return DropdownMenuItem<String>(
@@ -147,7 +141,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                               }).toList(),
                               onChanged: (newItemSelected) {
                                 setState(() {
-                                  widget.sensorNumber = newItemSelected;
+                                  // widget.sensorNumber = newItemSelected;
                                 });
                               },
                             ),
@@ -175,7 +169,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                             color: AppColors.navyBlue,
                           ),
                           isExpanded: true,
-                          value: widget.farmValue,
+                          value: 'Fazenda',
                           items: widget.farmList
                               .map(
                                 (item) => DropdownMenuItem<String>(
@@ -184,8 +178,9 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                                 ),
                               )
                               .toList(),
-                          onChanged: (item) =>
-                              setState(() => widget.farmValue = item ?? ''),
+                          onChanged: (item) {
+                            // setState(() => widget.farmValue = item ?? '');
+                          },
                         ),
                       ),
                     ],
@@ -208,7 +203,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                             Icons.expand_more,
                             color: AppColors.navyBlue,
                           ),
-                          value: widget.fieldValue,
+                          value: 'Talhão',
                           items: widget.fieldList
                               .map(
                                 (item) => DropdownMenuItem<String>(
@@ -217,8 +212,9 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                                 ),
                               )
                               .toList(),
-                          onChanged: (item) =>
-                              setState(() => widget.fieldValue = item ?? ''),
+                          onChanged: (item) {
+                            // setState(() => widget.fieldValue = item ?? '');
+                          },
                         ),
                       ),
                     ],

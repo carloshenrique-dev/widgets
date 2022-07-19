@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:widgets/app/core/ui/widgets/bottom_sheet_header.dart';
+import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
 import '../../../core/ui/themes/app_colors.dart';
 
 class SensorEditBottomSheet extends StatefulWidget {
   final String? sensorName;
-  String? fieldValue;
-  String? farmValue;
-  String? sensorNumber;
   final List<String> sensorNumberList;
   final List<String> fieldList;
   final List<String> farmList;
 
-  SensorEditBottomSheet({
+  const SensorEditBottomSheet({
     Key? key,
     required this.sensorName,
-    required this.sensorNumber,
     required this.sensorNumberList,
-    required this.fieldValue,
     required this.fieldList,
-    required this.farmValue,
     required this.farmList,
   }) : super(key: key);
 
@@ -35,20 +30,31 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
     return TextButton(
       onPressed: () {
         showModalBottomSheet(
+          isScrollControlled: true,
           context: context,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               top: Radius.circular(15),
             ),
           ),
-          builder: (context) => Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [
-                const BottomSheetHeader(title: 'Editar Sensor'),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
+          builder: (context) => Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
+              ),
+            ),
+            height: size.height * .75,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 15,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const BottomSheetHeader(title: 'Editar Sensor'),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
@@ -62,7 +68,7 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
                             widget.sensorName ?? '',
                             style: const TextStyle(
                               color: AppColors.green,
-                              fontSize: 20,
+                              fontSize: 22,
                             ),
                           ),
                         ],
@@ -77,9 +83,8 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
                             ),
                           ),
                           const SizedBox(width: 5),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            width: 90,
+                          SizedBox(
+                            width: 70,
                             height: 55,
                             child: DropdownButtonFormField<String>(
                               isExpanded: true,
@@ -87,7 +92,7 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
                                 Icons.expand_more,
                                 color: AppColors.purpleBlue,
                               ),
-                              value: widget.sensorNumber,
+                              value: '01',
                               items: widget.sensorNumberList
                                   .map((dropdownStringItem) {
                                 return DropdownMenuItem<String>(
@@ -97,7 +102,7 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
                               }).toList(),
                               onChanged: (newItemSelected) {
                                 setState(() {
-                                  widget.sensorNumber = newItemSelected;
+                                  // widget.sensorNumber = newItemSelected;
                                 });
                               },
                             ),
@@ -106,157 +111,131 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
                       ),
                     ],
                   ),
-                ),
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 12,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Fazenda',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.purpleBlue,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 55,
-                                width: size.width / 1.8,
-                                child: DropdownButtonFormField<String>(
-                                  icon: const Icon(
-                                    Icons.expand_more,
-                                    color: AppColors.navyBlue,
-                                  ),
-                                  isExpanded: true,
-                                  value: widget.farmValue,
-                                  items: widget.farmList
-                                      .map(
-                                        (item) => DropdownMenuItem<String>(
-                                          value: item,
-                                          child: Text(item),
-                                        ),
-                                      )
-                                      .toList(),
-                                  onChanged: (item) =>
-                                      setState(() => widget.farmValue = item),
-                                ),
-                              ),
-                            ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Fazenda',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: AppColors.purpleBlue,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 65,
+                        width: size.width / 1.6,
+                        child: DropdownButtonFormField<String>(
+                          icon: const Icon(
+                            Icons.expand_more,
+                            color: AppColors.navyBlue,
                           ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Talhão',
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: AppColors.purpleBlue,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 55,
-                              width: size.width / 1.8,
-                              child: DropdownButtonFormField<String>(
-                                icon: const Icon(
-                                  Icons.expand_more,
-                                  color: AppColors.navyBlue,
+                          isExpanded: true,
+                          value: 'Foz',
+                          items: widget.farmList
+                              .map(
+                                (item) => DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(item),
                                 ),
-                                value: widget.fieldValue,
-                                items: widget.fieldList
-                                    .map(
-                                      (item) => DropdownMenuItem<String>(
-                                        value: item,
-                                        child: Text(item),
-                                      ),
-                                    )
-                                    .toList(),
-                                onChanged: (item) =>
-                                    setState(() => widget.fieldValue = item),
-                              ),
-                            ),
-                          ],
+                              )
+                              .toList(),
+                          onChanged: (item) {
+                            // setState(() => widget.farmValue = item);
+                          },
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Row(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Talhão',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: AppColors.purpleBlue,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 65,
+                        width: size.width / 1.6,
+                        child: DropdownButtonFormField<String>(
+                          icon: const Icon(
+                            Icons.expand_more,
+                            color: AppColors.navyBlue,
+                          ),
+                          value: 'df',
+                          items: widget.fieldList
+                              .map(
+                                (item) => DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(item),
+                                ),
+                              )
+                              .toList(),
+                          onChanged: (item) {
+                            // setState(() => widget.fieldValue = item);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
+                            padding: EdgeInsets.zero,
                             icon: const Icon(
                               Icons.qr_code_scanner,
                               color: AppColors.purpleBlue,
-                              size: 55,
+                              size: 50,
                             ),
                             onPressed: () {},
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(
+                            height: 20,
+                          ),
                           const Text(
                             'Ler QRCode',
                             style: TextStyle(color: Colors.grey),
-                          )
+                          ),
                         ],
                       ),
                       Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
+                            padding: EdgeInsets.zero,
                             icon: const Icon(
                               Icons.speed,
                               color: AppColors.purpleBlue,
-                              size: 55,
+                              size: 50,
                             ),
                             onPressed: () {},
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(
+                            height: 20,
+                          ),
                           const Text(
                             'Teste de Leitura',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          )
+                            style: TextStyle(color: Colors.grey),
+                          ),
                         ],
                       ),
                     ],
                   ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(15),
-                      primary: AppColors.purpleBlue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: const Text(
-                      'Salvar',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
+                  const SizedBox(
+                    height: 50,
+                    width: double.infinity,
+                    child: RetangularButtonWidget(
+                      title: 'Salvar',
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );
