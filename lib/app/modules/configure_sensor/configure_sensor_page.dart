@@ -27,8 +27,6 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-
     Color getTextColor(String? value) {
       if (value == 'Em Trânsito') {
         return Colors.orange;

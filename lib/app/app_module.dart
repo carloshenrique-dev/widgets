@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:widgets/app/modules/register_card/register_card_module.dart';
 import 'modules/boleto_generated/boleto_generated_module.dart';
 import 'modules/clientless_purchase/clientless_purchase_module.dart';
 import 'modules/configure_sensor/configure_sensor_module.dart';
@@ -46,6 +47,10 @@ class AppModule extends Module {
         ModuleRoute(
           '/registerNewUserGroup/',
           module: RegisterNewUserGroupModule(),
+        ),
+        ModuleRoute(
+          '/registerCard/',
+          module: RegisterCardModule(),
         ),
       ];
 }

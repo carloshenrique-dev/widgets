@@ -23,7 +23,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
     return IconButton(
       icon: const Icon(
@@ -49,13 +49,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: const [
-                          // TextFormField(
-                          //   controller: ,
-                          // ),
-                        ],
-                      ),
+                      Row(),
                       Row(
                         children: [
                           const Text(

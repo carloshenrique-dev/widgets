@@ -37,7 +37,6 @@ dependencies:
   google_fonts: ^3.0.1
   modular_bloc_bind: ^1.0.1
   validatorless: ^1.2.1
-  auto_size_text: ^3.0.0
   font_awesome_flutter: ^10.1.0
 
 dev_dependencies:

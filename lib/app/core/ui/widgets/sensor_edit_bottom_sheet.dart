@@ -20,12 +20,10 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
   Widget build(BuildContext context) {
     final List<String> dropdownList = ['01', '02', '03'];
     String? dropdownValue = '01';
-
     final List<String> talhao = ['Talhão', 'df'];
     String? talhaoValue = 'Talhão';
     final List<String> farm = ['Fazenda', 'Foz'];
     String? farmValue = 'Fazenda';
-
     final Size size = MediaQuery.of(context).size;
 
     return TextButton(
