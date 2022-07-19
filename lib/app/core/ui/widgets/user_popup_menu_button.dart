@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../modules/fields/fields_page.dart';
 import '../themes/app_colors.dart';
 
 class UserPopupMenuButton extends StatelessWidget {
-  const UserPopupMenuButton({Key? key}) : super(key: key);
+  final VoidCallback onTap;
+  const UserPopupMenuButton({required this.onTap, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
       icon: const Icon(Icons.more_vert, color: AppColors.purpleBlue),
       offset: const Offset(-15, 45),
+      onSelected: (value) {
+        if (value == 0) {
+          onTap();
+        }
+      },
       itemBuilder: (_) => [
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Data,
+          value: 0,
+          enabled: true,
           child: Column(
             children: [
               Row(
                 children: const [
-                  Icon(Icons.key_outlined, color: AppColors.purpleBlue),
+                  Icon(Icons.person_outline, color: AppColors.purpleBlue),
                   SizedBox(
                     width: 20,
                   ),
                   Text(
-                    'Trocar Senha',
+                    'Nível de acesso',
                     style: TextStyle(
                       color: AppColors.purpleBlue,
                       fontSize: 17,
@@ -37,12 +43,11 @@ class UserPopupMenuButton extends StatelessWidget {
               const Divider(height: 2, color: AppColors.lightGray),
             ],
           ),
-          onTap: () {},
         ),
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Remove,
+          value: 1,
           child: Column(
             children: [
               Row(
@@ -69,7 +74,7 @@ class UserPopupMenuButton extends StatelessWidget {
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Remove,
+          value: 2,
           child: Row(
             children: const [
               Icon(Icons.backspace_outlined, color: AppColors.red),
