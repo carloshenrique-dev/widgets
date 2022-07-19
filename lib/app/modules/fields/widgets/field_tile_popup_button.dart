@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../modules/fields/fields_page.dart';
-import '../themes/app_colors.dart';
+import '../fields_page.dart';
+import '../../../core/ui/themes/app_colors.dart';
 
 class FieldTilePopupButton extends StatelessWidget {
   const FieldTilePopupButton({Key? key}) : super(key: key);

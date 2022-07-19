@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/field_tile_popup_button.dart';
+import 'package:widgets/app/modules/configure_sensor/widgets/configure_sensor_popup_button.dart';
 import 'package:widgets/app/core/ui/widgets/header.dart';
 import 'package:widgets/app/modules/configure_sensor/widgets/register_sensor_bottom_sheet.dart';
 import 'package:widgets/app/modules/configure_sensor/widgets/sensor_edit_bottom_sheet.dart';
@@ -27,7 +27,7 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
 
   List sensorsList = [
     {'DJ236546584': 'Em Trânsito'},
-    {'DJ222222222': 'Recebido'},
+    {'DJ222222222': 'Entregue'},
     {'DJ333333333': 'Registrado'},
     {'DJ444444444': 'Em Trânsito'},
   ];
@@ -37,7 +37,7 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
     Color getTextColor(String? value) {
       if (value == 'Em Trânsito') {
         return Colors.orange;
-      } else if (value == 'Recebido') {
+      } else if (value == 'Entregue') {
         return AppColors.green;
       } else {
         return AppColors.purpleBlue;
@@ -172,7 +172,9 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                                             color: getTextColor(status),
                                           ),
                                         ),
-                                        const FieldTilePopupButton(),
+                                        ConfigureSensorPopupButton(
+                                          sensorStatus: status,
+                                        ),
                                       ],
                                     ),
                                   )
