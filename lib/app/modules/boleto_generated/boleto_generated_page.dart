@@ -29,7 +29,7 @@ class BoletoGeneratedPage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
-                color: AppColors.gray,
+                color: AppColors.grey,
               ),
             ),
           ),
@@ -100,7 +100,7 @@ class BoletoGeneratedPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: AppColors.gray,
+                  color: AppColors.grey,
                 ),
               ),
             ],

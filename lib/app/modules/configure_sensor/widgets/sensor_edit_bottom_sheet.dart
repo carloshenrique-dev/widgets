@@ -1,36 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:widgets/app/core/ui/widgets/bottom_sheet_header.dart';
+import '../../../core/ui/themes/app_colors.dart';
 
-import '../themes/app_colors.dart';
-import 'bottom_sheet_header.dart';
+class SensorEditBottomSheet extends StatefulWidget {
+  final String? sensorName;
+  String? fieldValue;
+  String? farmValue;
+  String? sensorNumber;
+  final List<String> sensorNumberList;
+  final List<String> fieldList;
+  final List<String> farmList;
 
-class RegisterSensorBottomSheet extends StatefulWidget {
-  const RegisterSensorBottomSheet({Key? key}) : super(key: key);
+  SensorEditBottomSheet({
+    Key? key,
+    required this.sensorName,
+    required this.sensorNumber,
+    required this.sensorNumberList,
+    required this.fieldValue,
+    required this.fieldList,
+    required this.farmValue,
+    required this.farmList,
+  }) : super(key: key);
 
   @override
-  State<RegisterSensorBottomSheet> createState() =>
-      _RegisterSensorBottomSheetState();
+  State<SensorEditBottomSheet> createState() => _SensorEditBottomSheetState();
 }
 
-class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
-  TextEditingController? controller;
-  List<String> dropdownList = ['01', '02', '03'];
-  String? dropdownValue = '01';
-
-  List<String> talhao = ['Talhão', 'df'];
-  String? talhaoValue = 'Talhão';
-  List<String> farm = ['Fazenda', 'Foz'];
-  String? farmValue = 'Fazenda';
-
+class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
 
-    return IconButton(
-      icon: const Icon(
-        Icons.add,
-        color: AppColors.purpleBlue,
-        size: 30,
-      ),
+    return TextButton(
       onPressed: () {
         showModalBottomSheet(
           context: context,
@@ -45,15 +47,24 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
               children: [
                 const BottomSheetHeader(title: 'Editar Sensor'),
                 Padding(
-                  padding: const EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
-                        children: const [
-                          // TextFormField(
-                          //   controller: ,
-                          // ),
+                        children: [
+                          const Icon(
+                            FontAwesomeIcons.locationDot,
+                            color: AppColors.green,
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            widget.sensorName ?? '',
+                            style: const TextStyle(
+                              color: AppColors.green,
+                              fontSize: 20,
+                            ),
+                          ),
                         ],
                       ),
                       Row(
@@ -62,20 +73,23 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                             'nº',
                             style: TextStyle(
                               color: AppColors.purpleBlue,
-                              fontSize: 16,
+                              fontSize: 18,
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          SizedBox(
-                            width: 50,
-                            child: DropdownButton<String>(
+                          const SizedBox(width: 5),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            width: 90,
+                            height: 55,
+                            child: DropdownButtonFormField<String>(
                               isExpanded: true,
                               icon: const Icon(
                                 Icons.expand_more,
                                 color: AppColors.purpleBlue,
                               ),
-                              value: dropdownValue,
-                              items: dropdownList.map((dropdownStringItem) {
+                              value: widget.sensorNumber,
+                              items: widget.sensorNumberList
+                                  .map((dropdownStringItem) {
                                 return DropdownMenuItem<String>(
                                   value: dropdownStringItem,
                                   child: Text(dropdownStringItem),
@@ -83,7 +97,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                               }).toList(),
                               onChanged: (newItemSelected) {
                                 setState(() {
-                                  dropdownValue = newItemSelected;
+                                  widget.sensorNumber = newItemSelected;
                                 });
                               },
                             ),
@@ -97,13 +111,13 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
-                      vertical: 10,
+                      vertical: 12,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 7),
+                          padding: const EdgeInsets.symmetric(vertical: 5),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -123,8 +137,8 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                                     color: AppColors.navyBlue,
                                   ),
                                   isExpanded: true,
-                                  value: farmValue,
-                                  items: farm
+                                  value: widget.farmValue,
+                                  items: widget.farmList
                                       .map(
                                         (item) => DropdownMenuItem<String>(
                                           value: item,
@@ -133,7 +147,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                                       )
                                       .toList(),
                                   onChanged: (item) =>
-                                      setState(() => farmValue = item),
+                                      setState(() => widget.farmValue = item),
                                 ),
                               ),
                             ],
@@ -157,8 +171,8 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                                   Icons.expand_more,
                                   color: AppColors.navyBlue,
                                 ),
-                                value: talhaoValue,
-                                items: talhao
+                                value: widget.fieldValue,
+                                items: widget.fieldList
                                     .map(
                                       (item) => DropdownMenuItem<String>(
                                         value: item,
@@ -167,7 +181,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                                     )
                                     .toList(),
                                 onChanged: (item) =>
-                                    setState(() => talhaoValue = item),
+                                    setState(() => widget.fieldValue = item),
                               ),
                             ),
                           ],
@@ -222,7 +236,8 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                     ],
                   ),
                 ),
-                SizedBox(
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -246,6 +261,13 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
           ),
         );
       },
+      child: Text(
+        widget.sensorName ?? '',
+        style: const TextStyle(
+          color: Colors.grey,
+          fontSize: 18,
+        ),
+      ),
     );
   }
 }

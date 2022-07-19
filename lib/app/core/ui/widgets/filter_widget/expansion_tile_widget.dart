@@ -24,7 +24,7 @@ class _ExpansionTileWidgetState extends State<ExpansionTileWidget> {
   Widget build(BuildContext context) {
     return ExpansionTile(
       title: Text(
-        widget().title,
+        widget.title,
         style: const TextStyle(
           color: AppColors.navyBlue,
           fontSize: 18,
@@ -33,25 +33,25 @@ class _ExpansionTileWidgetState extends State<ExpansionTileWidget> {
       tilePadding: const EdgeInsets.all(10),
       iconColor: AppColors.navyBlue,
       collapsedIconColor: AppColors.navyBlue,
-      children: widget().items.map((item) {
-        widget().itemChecked.add(false);
-        final int index_ = widget().items.indexOf(item);
+      children: widget.items.map((item) {
+        widget.itemChecked.add(false);
+        final int index_ = widget.items.indexOf(item);
         return CheckboxListTile(
           title: Text(
             item,
             style: TextStyle(
               fontSize: 18,
-              color: !widget().itemChecked[index_]
+              color: !widget.itemChecked[index_]
                   ? Colors.grey
                   : AppColors.purpleBlue,
             ),
           ),
-          value: widget().itemChecked[index_],
+          value: widget.itemChecked[index_],
           contentPadding: const EdgeInsets.all(8),
           activeColor: AppColors.purpleBlue,
           controlAffinity: ListTileControlAffinity.leading,
           onChanged: (bool? newValue) => setState(() {
-            widget().itemChecked[index_] = newValue!;
+            widget.itemChecked[index_] = newValue!;
           }),
         );
       }).toList(),
