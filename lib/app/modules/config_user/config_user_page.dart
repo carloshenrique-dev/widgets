@@ -98,7 +98,7 @@ class _ConfigUserPageState extends State<ConfigUserPage> {
                             size: 40,
                           ),
                           Text(
-                            'Cadastrar usuário identificado',
+                            'Cadastrar grupo de usuários',
                             style: TextStyle(
                               color: AppColors.purpleBlue,
                               fontSize: 20,

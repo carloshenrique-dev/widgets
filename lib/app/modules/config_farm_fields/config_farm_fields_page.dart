@@ -15,6 +15,97 @@ class _ConfigFarmFieldsPageState extends State<ConfigFarmFieldsPage> {
   bool _allPlots = false;
   bool _allCultures = false;
 
+  void _onButtonPressed() {
+    showModalBottomSheet(
+      backgroundColor: AppColors.white,
+      context: context,
+      builder: (context) {
+        return Container(
+          color: const Color(0xFF737373),
+          child: Container(
+            decoration: const BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+            ),
+            height: MediaQuery.of(context).size.height * 0.5,
+            child: SizedBox(
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.close_outlined,
+                            color: AppColors.gray,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Image(
+                            image: AssetImage('assets/images/car_farm.png'),
+                          ),
+                          Text(
+                            'Buscar imagem da fazenda pelo CAR',
+                            style: TextStyle(
+                              color: AppColors.purpleBlue,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 40)
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Image(
+                            image: AssetImage('assets/images/map_pin.png'),
+                          ),
+                          Text(
+                            'Buscar imagem pelo Google Maps',
+                            style: TextStyle(
+                              color: AppColors.purpleBlue,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 40)
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     List<DropdownMenuItem<Object>>? items;
@@ -95,7 +186,7 @@ class _ConfigFarmFieldsPageState extends State<ConfigFarmFieldsPage> {
                                       borderRadius: BorderRadius.circular(0),
                                     ),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: _onButtonPressed,
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
