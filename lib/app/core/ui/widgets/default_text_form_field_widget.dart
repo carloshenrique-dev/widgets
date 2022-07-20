@@ -9,6 +9,7 @@ class DefaultTextFormWidget extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextInputAction textInputAction;
   final List<TextInputFormatter>? inputFormatters;
+  final Function(String?)? onSaved;
 
   const DefaultTextFormWidget({
     super.key,
@@ -19,6 +20,7 @@ class DefaultTextFormWidget extends StatelessWidget {
     this.controller,
     this.textInputAction = TextInputAction.next,
     this.inputFormatters,
+    this.onSaved,
   });
 
   @override
@@ -39,6 +41,7 @@ class DefaultTextFormWidget extends StatelessWidget {
         const SizedBox(height: 10),
         TextFormField(
           controller: controller,
+          onSaved: onSaved,
           decoration: InputDecoration(
             hintText: hintText,
           ),

@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/themes/app_text_style.dart';
+import 'package:widgets/app/core/ui/widgets/address_widget/address_widget.dart';
 import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
-import 'package:widgets/app/core/utils/formatters/cep_input_formatter.dart';
 import 'package:widgets/app/core/utils/formatters/cpf_input_formatter.dart';
 import 'package:widgets/app/core/utils/formatters/expiration_date_formatter.dart';
 
@@ -164,129 +163,15 @@ class _CardPageState extends State<CardPage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        const Text(
-                          'Endereço de cobrança',
-                          style: AppTextStyle.textLink,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        DefaultTextFormWidget(
-                          title: 'CEP',
-                          hintText: 'Digite aqui',
-                          textInputType: TextInputType.number,
-                          controller: _postalCodeController,
-                          validator: Validatorless.required('Informe seu CEP'),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.digitsOnly,
-                            CepInputFormatter(ponto: false),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: DefaultTextFormWidget(
-                                title: 'Cidade',
-                                hintText: 'Digite aqui',
-                                controller: _cityController,
-                                validator: Validatorless.required(
-                                  'Informe sua cidade',
-                                ),
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.deny(
-                                    RegExp('[0-9]'),
-                                  ),
-                                ],
-                                textInputType: TextInputType.text,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Expanded(
-                              child: DefaultTextFormWidget(
-                                title: 'Estado',
-                                hintText: 'UF',
-                                controller: _stateController,
-                                validator: Validatorless.required(
-                                  'Informe seu estado',
-                                ),
-                                textInputType: TextInputType.text,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.deny(
-                                    RegExp('[0-9]'),
-                                  ),
-                                  LengthLimitingTextInputFormatter(2),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        DefaultTextFormWidget(
-                          title: 'Bairro',
-                          hintText: 'Digite aqui',
-                          controller: _neighborhoodController,
-                          validator:
-                              Validatorless.required('Informe seu bairro'),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.deny(RegExp('[0-9]')),
-                          ],
-                          textInputType: TextInputType.text,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        DefaultTextFormWidget(
-                          title: 'Logradouro',
-                          hintText: 'Rua, Av, Travessa...',
-                          controller: _adressController,
-                          validator:
-                              Validatorless.required('Informe seu logradouro'),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.deny(RegExp('[0-9]')),
-                          ],
-                          textInputType: TextInputType.text,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        DefaultTextFormWidget(
-                          title: 'Número',
-                          hintText: '000',
-                          textInputType: TextInputType.number,
-                          controller: _addressNumberController,
-                          validator: Validatorless.multiple([
-                            Validatorless.required(
-                              'Digite o número do seu endereço',
-                            ),
-                            Validatorless.number('Digite apenas números')
-                          ]),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.digitsOnly,
-                            LengthLimitingTextInputFormatter(6),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        DefaultTextFormWidget(
-                          title: 'Complemento',
-                          hintText: 'Digite aqui',
-                          controller: _addressLine2Controller,
-                          validator:
-                              Validatorless.required('Digite seu complemento'),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.deny(RegExp('[0-9]')),
-                          ],
-                          textInputType: TextInputType.text,
-                        ),
+                        AddressWidget(
+                          postalCodeController: _postalCodeController,
+                          cityController: _cityController,
+                          stateController: _stateController,
+                          neighborhoodController: _neighborhoodController,
+                          adressController: _adressController,
+                          addressNumberController: _addressNumberController,
+                          addressLine2Controller: _addressLine2Controller,
+                        )
                       ],
                     ),
                   ),

@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 
-/// Formata o valor do campo com a mascara de CEP `XX.XXX-XXX`
 class ExpirationDateFormatter extends TextInputFormatter {
   /// Define o tamanho máximo do campo.
   final maxLength = 4;

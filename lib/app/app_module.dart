@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:widgets/app/modules/finish_registration/finish_registration_module.dart';
 import 'package:widgets/app/modules/register_card/register_card_module.dart';
 import 'modules/boleto_generated/boleto_generated_module.dart';
 import 'modules/clientless_purchase/clientless_purchase_module.dart';
@@ -26,24 +27,78 @@ class AppModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (context, args) => const SplashPage()),
-        ModuleRoute('/otp/', module: OtpModule()),
-        ModuleRoute('/register/', module: RegisterModule()),
-        ModuleRoute('/selectFarm/', module: SelectFarmModule()),
-        ModuleRoute('/clientlessPurchase/', module: ClientlessPurchaseModule()),
-        ModuleRoute('/noCoveragePurchase/', module: NoCoverageModule()),
-        ModuleRoute('/boletoGenerated/', module: BoletoGeneratedModule()),
-        ModuleRoute('/readings/', module: ReadingsModule()),
-        ModuleRoute('/personalData/', module: PersonalDataModule()),
-        ModuleRoute('/financialData/', module: FinancialDataModule()),
-        ModuleRoute('/login/', module: LoginModule()),
-        ModuleRoute('/welcome/', module: WelcomeModule()),
-        ModuleRoute('/fields/', module: FieldsModule()),
-        ModuleRoute('/farmData/', module: FarmDataModule()),
-        ModuleRoute('/configureSensor/', module: ConfigureSensorModule()),
-        ModuleRoute('/payment/', module: PaymentModule()),
-        ModuleRoute('/recover/', module: RecoverPasswordModule()),
-        ModuleRoute('/registerNewUser/', module: RegisterNewUserModule()),
+        ChildRoute(
+          '/',
+          child: (context, args) => const SplashPage(),
+        ),
+        ModuleRoute(
+          '/otp/',
+          module: OtpModule(),
+        ),
+        ModuleRoute(
+          '/register/',
+          module: RegisterModule(),
+        ),
+        ModuleRoute(
+          '/selectFarm/',
+          module: SelectFarmModule(),
+        ),
+        ModuleRoute(
+          '/clientlessPurchase/',
+          module: ClientlessPurchaseModule(),
+        ),
+        ModuleRoute(
+          '/noCoveragePurchase/',
+          module: NoCoverageModule(),
+        ),
+        ModuleRoute(
+          '/boletoGenerated/',
+          module: BoletoGeneratedModule(),
+        ),
+        ModuleRoute(
+          '/readings/',
+          module: ReadingsModule(),
+        ),
+        ModuleRoute(
+          '/personalData/',
+          module: PersonalDataModule(),
+        ),
+        ModuleRoute(
+          '/financialData/',
+          module: FinancialDataModule(),
+        ),
+        ModuleRoute(
+          '/login/',
+          module: LoginModule(),
+        ),
+        ModuleRoute(
+          '/welcome/',
+          module: WelcomeModule(),
+        ),
+        ModuleRoute(
+          '/fields/',
+          module: FieldsModule(),
+        ),
+        ModuleRoute(
+          '/farmData/',
+          module: FarmDataModule(),
+        ),
+        ModuleRoute(
+          '/configureSensor/',
+          module: ConfigureSensorModule(),
+        ),
+        ModuleRoute(
+          '/payment/',
+          module: PaymentModule(),
+        ),
+        ModuleRoute(
+          '/recover/',
+          module: RecoverPasswordModule(),
+        ),
+        ModuleRoute(
+          '/registerNewUser/',
+          module: RegisterNewUserModule(),
+        ),
         ModuleRoute(
           '/registerNewUserGroup/',
           module: RegisterNewUserGroupModule(),
@@ -51,6 +106,10 @@ class AppModule extends Module {
         ModuleRoute(
           '/registerCard/',
           module: RegisterCardModule(),
+        ),
+        ModuleRoute(
+          '/finishRegistration/',
+          module: FinishRegistrationModule(),
         ),
       ];
 }

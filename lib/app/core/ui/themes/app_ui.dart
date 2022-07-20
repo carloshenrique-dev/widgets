@@ -19,18 +19,19 @@ class AppUI {
       titleTextStyle: AppTextStyle.appBarTitle,
       iconTheme: const IconThemeData(color: AppColors.purpleBlue),
     ),
-    textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.grey),
+    textSelectionTheme:
+        const TextSelectionThemeData(cursorColor: AppColors.ligthGrey),
     inputDecorationTheme: const InputDecorationTheme(
-      hintStyle: TextStyle(color: Colors.grey),
+      hintStyle: TextStyle(color: AppColors.ligthGrey),
       border: OutlineInputBorder(),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.purpleBlue),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.grey),
+        borderSide: BorderSide(color: AppColors.ligthGrey),
       ),
       disabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.grey),
+        borderSide: BorderSide(color: AppColors.ligthGrey),
       ),
       labelStyle: TextStyle(color: Colors.black),
     ),
