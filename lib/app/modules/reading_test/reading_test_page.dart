@@ -98,32 +98,6 @@ class ReadingTestPage extends StatelessWidget {
                       ambientMoisture: valuesMockNumbers[4],
                     ),
                   ),
-                  // const ManualChartBar(),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     Text(
-                  //       '${mockValues[0]}°',
-                  //       style: const TextStyle(fontSize: 18),
-                  //     ),
-                  //     Text(
-                  //       '${mockValues[1]}°',
-                  //       style: const TextStyle(fontSize: 18),
-                  //     ),
-                  //     Text(
-                  //       '${mockValues[2]}',
-                  //       style: const TextStyle(fontSize: 18),
-                  //     ),
-                  //     Text(
-                  //       '${mockValues[3]}°',
-                  //       style: const TextStyle(fontSize: 18),
-                  //     ),
-                  //     Text(
-                  //       '${mockValues[4]}%',
-                  //       style: const TextStyle(fontSize: 18),
-                  //     ),
-                  //   ],
-                  // )
                 ],
               ),
             ),
