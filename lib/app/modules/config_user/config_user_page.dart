@@ -338,7 +338,7 @@ class _ConfigUserPageState extends State<ConfigUserPage> {
                                             CrossAxisAlignment.start,
                                         children: const [
                                           Text(
-                                            'Matheus Silva Sauro',
+                                            'Matheus Silva',
                                             style: TextStyle(
                                               color: AppColors.black,
                                               fontSize: 18,

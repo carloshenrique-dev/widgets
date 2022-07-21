@@ -2,8 +2,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:widgets/app/modules/config_farm_fields/config_farm_fields_module.dart';
 import 'package:widgets/app/modules/config_user/config_user_module.dart';
 import 'package:widgets/app/modules/data_sharing/data_sharing_module.dart';
+import 'package:widgets/app/modules/plan/new_customer/plan_new_customer_module.dart';
+import 'package:widgets/app/modules/plan/old_customer/plan_old_customer_module.dart';
+import 'package:widgets/app/modules/plan/old_customer/plan_old_customer_page.dart';
 import 'package:widgets/app/modules/updates/updates_module.dart';
-import 'package:widgets/app/modules/updates/updates_page.dart';
 import 'modules/boleto_generated/boleto_generated_module.dart';
 import 'modules/clientless_purchase/clientless_purchase_module.dart';
 import 'modules/configure_sensor/configure_sensor_module.dart';
@@ -28,7 +30,7 @@ class AppModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/', child: (context, args) => const UpdatesPage()),
+        ChildRoute('/', child: (context, args) => const PlanOldCustomerPage()),
         //ChildRoute('/', child: (context, args) => const SplashPage()),
         ModuleRoute('/otp/', module: OtpModule()),
         ModuleRoute('/register/', module: RegisterModule()),
@@ -47,6 +49,8 @@ class AppModule extends Module {
         ModuleRoute('/configureSensor/', module: ConfigureSensorModule()),
         ModuleRoute('/configureUser/', module: ConfigUserModule()),
         ModuleRoute('/configFarmFields/', module: ConfigFarmFieldsModule()),
+        ModuleRoute('/planNewCustomer/', module: PlanNewCustomerModule()),
+        ModuleRoute('/planOldCustomer/', module: PlanOldCustomerModule()),
         ModuleRoute('/update/', module: UpdatesModule()),
         ModuleRoute('/payment/', module: PaymentModule()),
         ModuleRoute('/recover/', module: RecoverPasswordModule()),
