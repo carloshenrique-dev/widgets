@@ -269,11 +269,66 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                       ),
                     ],
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 50,
                     width: double.infinity,
                     child: RetangularButtonWidget(
                       title: 'Salvar',
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Stack(
+                              children: [
+                                Center(
+                                  child: Container(
+                                    padding: const EdgeInsets.all(20),
+                                    height: 250,
+                                    width: 300,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Icon(
+                                          Icons.error_outline,
+                                          color: Colors.red,
+                                          size: 30,
+                                        ),
+                                        const Text(
+                                          'Falha na leitura. Verifique a instalação e tente novamente',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: AppColors.navyBlue,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 50,
+                                          width: 180,
+                                          child: RetangularButtonWidget(
+                                            title: 'Voltar',
+                                            color: AppColors.white,
+                                            onPrimary: AppColors.purpleBlue,
+                                            borderColor: AppColors.purpleBlue,
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
                     ),
                   ),
                 ],
