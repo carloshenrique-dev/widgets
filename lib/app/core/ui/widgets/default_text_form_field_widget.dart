@@ -26,17 +26,15 @@ class DefaultTextFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            title ?? 'Insira seus dados abaixo',
-            style: const TextStyle(
-              fontSize: 17,
-              color: Colors.grey,
-            ),
-            textAlign: TextAlign.left,
+        Text(
+          title ?? 'Insira seus dados abaixo',
+          style: const TextStyle(
+            fontSize: 17,
+            color: Colors.grey,
           ),
+          textAlign: TextAlign.left,
         ),
         const SizedBox(height: 10),
         TextFormField(

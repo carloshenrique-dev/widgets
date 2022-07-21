@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/button_with_icon_widget.dart';
 import 'package:widgets/app/core/ui/widgets/container_register_widget.dart';
 import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/email_widget.dart';
+import 'package:widgets/app/entities/register/register_new_group.dart';
 
 class RegisterNewUserGroupPage extends StatefulWidget {
   const RegisterNewUserGroupPage({super.key});
@@ -15,16 +16,9 @@ class RegisterNewUserGroupPage extends StatefulWidget {
 }
 
 class _RegisterNewUserGroupPageState extends State<RegisterNewUserGroupPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
+  RegisterNewGroup _model = RegisterNewGroup();
 
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -52,24 +46,19 @@ class _RegisterNewUserGroupPageState extends State<RegisterNewUserGroupPage> {
                         key: _formKey,
                         child: ContainerRegisterWidget(
                           title: 'Novo grupo',
-                          textFormWidget1: DefaultTextFormWidget(
-                            title: 'Login',
-                            hintText: 'E-mail',
-                            textInputType: TextInputType.number,
-                            controller: _emailController,
-                            validator: Validatorless.multiple([
-                              Validatorless.required('Informe seu CPF'),
-                              Validatorless.email(
-                                'Informe seu e-mail corretamente',
-                              ),
-                            ]),
+                          textFormWidget1: EmailWidget(
+                            onSave: (value) =>
+                                _model = _model.copyWith(email: value),
                           ),
                           textFormWidget2: DefaultTextFormWidget(
-                            controller: _passwordController,
                             hintText: 'Mínimo de 6 caracteres',
                             textInputType: TextInputType.number,
                             title: 'Senha',
+                            onSaved: (value) =>
+                                _model = _model.copyWith(password: value),
                           ),
+                          onSaved: (value) =>
+                              _model = _model.copyWith(farm: value),
                         ),
                       ),
                       const SizedBox(

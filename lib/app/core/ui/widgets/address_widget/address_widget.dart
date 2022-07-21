@@ -3,26 +3,40 @@ import 'package:flutter/services.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_text_style.dart';
 import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
-import 'package:widgets/app/core/utils/formatters/cep_input_formatter.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/cep_widget.dart';
 
 class AddressWidget extends StatelessWidget {
-  final TextEditingController postalCodeController;
-  final TextEditingController cityController;
-  final TextEditingController stateController;
-  final TextEditingController neighborhoodController;
-  final TextEditingController adressController;
-  final TextEditingController addressNumberController;
-  final TextEditingController addressLine2Controller;
+  final TextEditingController? postalCodeController;
+  final TextEditingController? cityController;
+  final TextEditingController? stateController;
+  final TextEditingController? neighborhoodController;
+  final TextEditingController? adressController;
+  final TextEditingController? addressNumberController;
+  final TextEditingController? addressLine2Controller;
+  final Function(String?)? onSavedPostalCode;
+  final Function(String?)? onSavedCity;
+  final Function(String?)? onSavedState;
+  final Function(String?)? onSavedNeighborhood;
+  final Function(String?)? onSavedAdress;
+  final Function(String?)? onSavedAddressNumber;
+  final Function(String?)? onSavedAddressLine2;
 
   const AddressWidget({
     super.key,
-    required this.postalCodeController,
-    required this.cityController,
-    required this.stateController,
-    required this.neighborhoodController,
-    required this.adressController,
-    required this.addressNumberController,
-    required this.addressLine2Controller,
+    this.postalCodeController,
+    this.cityController,
+    this.stateController,
+    this.neighborhoodController,
+    this.adressController,
+    this.addressNumberController,
+    this.addressLine2Controller,
+    this.onSavedPostalCode,
+    this.onSavedCity,
+    this.onSavedState,
+    this.onSavedNeighborhood,
+    this.onSavedAdress,
+    this.onSavedAddressNumber,
+    this.onSavedAddressLine2,
   });
 
   @override
@@ -37,17 +51,7 @@ class AddressWidget extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        DefaultTextFormWidget(
-          title: 'CEP',
-          hintText: 'Digite aqui',
-          textInputType: TextInputType.number,
-          controller: postalCodeController,
-          validator: Validatorless.required('Informe seu CEP'),
-          inputFormatters: [
-            FilteringTextInputFormatter.digitsOnly,
-            CepInputFormatter(ponto: false),
-          ],
-        ),
+        CepWidget(onSaved: onSavedPostalCode),
         const SizedBox(
           height: 20,
         ),
@@ -68,6 +72,7 @@ class AddressWidget extends StatelessWidget {
                   ),
                 ],
                 textInputType: TextInputType.text,
+                onSaved: onSavedCity,
               ),
             ),
             const SizedBox(
@@ -88,6 +93,7 @@ class AddressWidget extends StatelessWidget {
                   ),
                   LengthLimitingTextInputFormatter(2),
                 ],
+                onSaved: onSavedState,
               ),
             ),
           ],
@@ -104,6 +110,7 @@ class AddressWidget extends StatelessWidget {
             FilteringTextInputFormatter.deny(RegExp('[0-9]')),
           ],
           textInputType: TextInputType.text,
+          onSaved: onSavedNeighborhood,
         ),
         const SizedBox(
           height: 20,
@@ -117,6 +124,7 @@ class AddressWidget extends StatelessWidget {
             FilteringTextInputFormatter.deny(RegExp('[0-9]')),
           ],
           textInputType: TextInputType.text,
+          onSaved: onSavedAdress,
         ),
         const SizedBox(
           height: 20,
@@ -136,6 +144,7 @@ class AddressWidget extends StatelessWidget {
             FilteringTextInputFormatter.digitsOnly,
             LengthLimitingTextInputFormatter(6),
           ],
+          onSaved: onSavedAddressNumber,
         ),
         const SizedBox(
           height: 20,
@@ -149,6 +158,7 @@ class AddressWidget extends StatelessWidget {
             FilteringTextInputFormatter.deny(RegExp('[0-9]')),
           ],
           textInputType: TextInputType.text,
+          onSaved: onSavedAddressLine2,
         )
       ],
     );

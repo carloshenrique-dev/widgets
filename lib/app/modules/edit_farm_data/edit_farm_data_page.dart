@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:validatorless/validatorless.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/address_widget/address_widget.dart';
+import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
 import 'package:widgets/app/core/ui/widgets/personalized_container_widget/personalized_container_widget.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
-import 'package:widgets/app/core/ui/widgets/total_amount_widget/total_amount_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/cnpj_widget.dart';
 import 'package:widgets/app/entities/address.dart';
-import 'package:widgets/app/entities/payment/card.dart';
-import '../../../core/ui/widgets/card_fields_widget/card_fields_widget.dart';
+import 'package:widgets/app/entities/farm_data/farm_data.dart';
 
-class CardPage extends StatefulWidget {
-  const CardPage({super.key});
+class EditFarmDataPage extends StatefulWidget {
+  const EditFarmDataPage({super.key});
 
   @override
-  State<CardPage> createState() => _CardPageState();
+  State<EditFarmDataPage> createState() => _EditFarmDataPageState();
 }
 
-class _CardPageState extends State<CardPage> {
-  Address _addressModel = const Address();
-  CreditCard _model = CreditCard();
+class _EditFarmDataPageState extends State<EditFarmDataPage> {
   final _formKey = GlobalKey<FormState>();
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  FarmData _model = FarmData();
+  Address _addressModel = const Address();
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +28,10 @@ class _CardPageState extends State<CardPage> {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Dados da Fazenda'),
+        ),
+        backgroundColor: AppColors.backgroundColor,
         body: PersonalizedContainerWidget(
           widget: Column(
             children: [
@@ -38,22 +40,43 @@ class _CardPageState extends State<CardPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CardFieldsWidget(
-                      onSavedCardName: (value) => _model = _model.copyWith(
+                    DefaultTextFormWidget(
+                      title: 'Nome da Fazenda',
+                      hintText: 'Digite aqui',
+                      validator: Validatorless.required(
+                        'Informe o nome da fazenda',
+                      ),
+                      textInputType: TextInputType.text,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.deny(RegExp('[0-9]')),
+                      ],
+                      onSaved: (value) => _model = _model.copyWith(
                         name: value,
                       ),
-                      onSavedCardNumber: (value) => _model = _model.copyWith(
-                        number: value,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    DefaultTextFormWidget(
+                      title: 'Razão Social',
+                      hintText: 'Digite aqui',
+                      validator: Validatorless.required(
+                        'Informe a razão social',
                       ),
-                      onSavedCpf: (value) => _model = _model.copyWith(
-                        cpf: value,
+                      textInputType: TextInputType.text,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.deny(RegExp('[0-9]')),
+                      ],
+                      onSaved: (value) => _model = _model.copyWith(
+                        razaoSocial: value,
                       ),
-                      onSavedCvv: (value) => _model = _model.copyWith(
-                        cvv: value,
-                      ),
-                      onSavedExpirationDate: (value) =>
-                          _model = _model.copyWith(
-                        expirationDate: value,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    CnpjWidget(
+                      onSaved: (value) => _model = _model.copyWith(
+                        cnpj: value,
                       ),
                     ),
                     const SizedBox(
@@ -80,23 +103,18 @@ class _CardPageState extends State<CardPage> {
                           _addressModel = _addressModel.copyWith(
                         state: value,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-              Divider(
-                color: Colors.grey[300],
-                height: 45,
-              ),
-              const TotalAmountWidget(),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               SizedBox(
                 width: size.width,
                 height: 50,
                 child: RetangularButtonWidget(
-                  title: 'Pagar',
+                  title: 'Salvar',
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
@@ -108,7 +126,7 @@ class _CardPageState extends State<CardPage> {
                     }
                   },
                 ),
-              )
+              ),
             ],
           ),
         ),
