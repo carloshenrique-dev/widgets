@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:widgets/app/core/ui/widgets/bottom_sheet_header.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
@@ -193,7 +194,9 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
                               color: AppColors.purpleBlue,
                               size: 50,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Modular.to.navigate('/locateSensor/');
+                            },
                           ),
                           const SizedBox(
                             height: 20,
@@ -214,7 +217,9 @@ class _SensorEditBottomSheetState extends State<SensorEditBottomSheet> {
                               color: AppColors.purpleBlue,
                               size: 50,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Modular.to.navigate('/readingTest/');
+                            },
                           ),
                           const SizedBox(
                             height: 20,

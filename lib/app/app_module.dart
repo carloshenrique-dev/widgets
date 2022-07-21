@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:widgets/app/modules/locate_sensor/locate_sensor_module.dart';
+import 'package:widgets/app/modules/reading_test/reading_test_module.dart';
 import 'modules/boleto_generated/boleto_generated_module.dart';
 import 'modules/clientless_purchase/clientless_purchase_module.dart';
 import 'modules/configure_sensor/configure_sensor_module.dart';
@@ -45,6 +46,7 @@ class AppModule extends Module {
         ModuleRoute('/recover/', module: RecoverPasswordModule()),
         ModuleRoute('/registerNewUser/', module: RegisterNewUserModule()),
         ModuleRoute('/locateSensor/', module: LocateSensorModule()),
+        ModuleRoute('/readingTest/', module: ReadingTestModule()),
         ModuleRoute(
           '/registerNewUserGroup/',
           module: RegisterNewUserGroupModule(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:widgets/app/core/ui/widgets/bottom_sheet_header.dart';
 import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
 
@@ -232,7 +233,9 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                               color: AppColors.purpleBlue,
                               size: 50,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Modular.to.navigate('/locateSensor/');
+                            },
                           ),
                           const SizedBox(
                             height: 20,
