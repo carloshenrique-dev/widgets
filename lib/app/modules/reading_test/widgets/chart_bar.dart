@@ -45,7 +45,7 @@ class ChartBar extends StatelessWidget {
               barRods: [
                 BarChartRodData(
                   rodStackItems: [
-                    BarChartRodStackItem(5, 14, Colors.white),
+                    BarChartRodStackItem(8, 14, Colors.white),
                   ],
                   toY: 14,
                   width: 30,
@@ -62,7 +62,7 @@ class ChartBar extends StatelessWidget {
               barRods: [
                 BarChartRodData(
                   rodStackItems: [
-                    BarChartRodStackItem(5, 14, Colors.white),
+                    BarChartRodStackItem(10, 14, Colors.white),
                   ],
                   toY: 14,
                   width: 30,
@@ -96,7 +96,7 @@ class ChartBar extends StatelessWidget {
               barRods: [
                 BarChartRodData(
                   rodStackItems: [
-                    BarChartRodStackItem(5, 14, Colors.white),
+                    BarChartRodStackItem(2, 14, Colors.white),
                   ],
                   toY: 14,
                   width: 30,
@@ -113,7 +113,7 @@ class ChartBar extends StatelessWidget {
               barRods: [
                 BarChartRodData(
                   rodStackItems: [
-                    BarChartRodStackItem(5, 14, Colors.white),
+                    BarChartRodStackItem(13, 14, Colors.white),
                   ],
                   toY: 14,
                   width: 30,

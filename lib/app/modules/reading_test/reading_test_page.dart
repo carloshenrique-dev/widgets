@@ -53,6 +53,7 @@ class ReadingTestPage extends StatelessWidget {
                         ),
                       ),
                       IconButton(
+                        padding: const EdgeInsets.only(left: 20),
                         icon: const Icon(Icons.delete_outline),
                         color: Colors.red,
                         iconSize: 26,
