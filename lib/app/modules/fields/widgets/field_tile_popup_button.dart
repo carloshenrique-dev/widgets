@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../modules/fields/fields_page.dart';
-import '../themes/app_colors.dart';
+import '../fields_page.dart';
+import '../../../core/ui/themes/app_colors.dart';
 
 class FieldTilePopupButton extends StatelessWidget {
   const FieldTilePopupButton({Key? key}) : super(key: key);
@@ -14,7 +13,7 @@ class FieldTilePopupButton extends StatelessWidget {
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Data,
+          value: PopupOptions.data,
           child: Row(
             children: const [
               Icon(Icons.data_thresholding),
@@ -35,7 +34,7 @@ class FieldTilePopupButton extends StatelessWidget {
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Remove,
+          value: PopupOptions.remove,
           child: Row(
             children: const [
               Icon(Icons.delete_rounded, color: Colors.red),

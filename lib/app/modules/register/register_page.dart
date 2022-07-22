@@ -50,28 +50,28 @@ class _RegisterPageState extends State<RegisterPage> {
                     title: 'Nome',
                     hintText: 'Digite aqui',
                     validator: Validatorless.required('Nome é obrigatório'),
-                    //controller:
+                    controller: _nameFieldController,
                   ),
                   const SizedBox(height: 20),
                   DefaultTextFormWidget(
                     title: 'E-mail',
                     hintText: 'Digite aqui',
                     validator: Validatorless.required('E-mail é obrigatório'),
-                    //controller:
+                    controller: _emailFieldController,
                   ),
                   const SizedBox(height: 20),
                   DefaultTextFormWidget(
                     title: 'Telefone',
                     hintText: '(DDD) Número',
                     validator: Validatorless.required('Telefone é obrigatório'),
-                    //controller:
+                    controller: _phoneFieldController,
                   ),
                   const SizedBox(height: 20),
                   PasswordFormField(
                     title: 'Senha',
                     hintText: 'Digite aqui',
                     validator: Validatorless.required('Senha é obrigatória'),
-                    //controller:
+                    controller: _passwordFieldController,
                     obscureText: _passwordVisible,
                     onPressed: () {
                       setState(() {
@@ -84,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     title: 'Confirmar Senha',
                     hintText: 'Digite aqui',
                     validator: Validatorless.required('Senha é obrigatória'),
-                    //controller:
+                    controller: _confirmPasswordFieldController,
                     obscureText: _confirmPasswordVisible,
                     onPressed: () {
                       setState(() {
@@ -99,7 +99,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color.fromARGB(255, 184, 183, 183)),
+                          const Color.fromARGB(255, 184, 183, 183),
+                        ),
                       ),
                       onPressed: () {},
                       child: const Text('Próximo'),

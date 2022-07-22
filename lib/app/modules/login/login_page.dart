@@ -10,7 +10,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size media = MediaQuery.of(context).size;
+    final Size media = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -33,7 +33,6 @@ class LoginPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
                 width: media.width,
@@ -55,7 +54,9 @@ class LoginPage extends StatelessWidget {
                       child: const Text(
                         'Esqueci minha Senha',
                         style: TextStyle(
-                            fontSize: 17, color: AppColors.purpleBlue),
+                          fontSize: 17,
+                          color: AppColors.purpleBlue,
+                        ),
                       ),
                     )
                   ],
