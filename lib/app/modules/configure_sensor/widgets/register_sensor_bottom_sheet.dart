@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/bottom_sheet_header.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
-
-import '../../../core/ui/themes/app_colors.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 
 class RegisterSensorBottomSheet extends StatefulWidget {
   final String? sensorName;

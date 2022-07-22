@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:widgets/app/core/ui/themes/app_text_style.dart';
 
-class DefaultTextFormWidget extends StatelessWidget {
+class PasswordFormField extends StatelessWidget {
   final String? title;
   final String? hintText;
   final TextEditingController? controller;
-  final TextInputType? textInputType;
   final String? Function(String?)? validator;
-  final TextInputAction textInputAction;
-  final List<TextInputFormatter>? inputFormatters;
+  final bool obscureText;
+  final void Function()? onPressed;
+  final Function(String?)? onSaved;
 
-  const DefaultTextFormWidget({
+  const PasswordFormField({
     super.key,
+    this.onPressed,
     this.validator,
-    this.textInputType,
+    this.obscureText = false,
     this.title,
     this.hintText,
     this.controller,
-    this.textInputAction = TextInputAction.next,
-    this.inputFormatters,
+    this.onSaved,
   });
 
   @override
@@ -28,24 +28,26 @@ class DefaultTextFormWidget extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            title ?? 'Insira seus dados abaixo',
-            style: const TextStyle(
-              fontSize: 17,
-              color: Colors.grey,
-            ),
+            title ?? 'Senha',
+            style: AppTextStyle.textFormFieldTitle,
             textAlign: TextAlign.left,
           ),
         ),
         const SizedBox(height: 10),
         TextFormField(
+          obscureText: !obscureText || true,
           controller: controller,
           decoration: InputDecoration(
             hintText: hintText,
+            suffixIcon: IconButton(
+              onPressed: onPressed,
+              icon: Icon(
+                obscureText == true ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
           ),
           validator: validator,
-          keyboardType: textInputType,
-          textInputAction: textInputAction,
-          inputFormatters: inputFormatters,
+          onSaved: onSaved,
         ),
       ],
     );

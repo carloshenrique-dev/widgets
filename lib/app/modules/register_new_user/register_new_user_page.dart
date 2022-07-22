@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/button_with_icon_widget.dart';
-import 'package:widgets/app/core/ui/widgets/container_register_widget.dart';
-import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
-import 'package:widgets/app/core/utils/formatters/cpf_input_formatter.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/button_with_icon_widget.dart';
+import 'package:widgets/app/core/ui/widgets/container_register_widget/container_register_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/cpf_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/phone_widget.dart';
+import 'package:widgets/app/entities/register/register_new_user.dart';
 
 class RegisterNewUserPage extends StatefulWidget {
   const RegisterNewUserPage({super.key});
@@ -16,16 +15,8 @@ class RegisterNewUserPage extends StatefulWidget {
 }
 
 class _RegisterNewUserPageState extends State<RegisterNewUserPage> {
-  final TextEditingController _cpfController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
+  RegisterNewUser _model = RegisterNewUser();
   final _formKey = GlobalKey<FormState>();
-
-  @override
-  void dispose() {
-    _cpfController.dispose();
-    _phoneController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,28 +44,16 @@ class _RegisterNewUserPageState extends State<RegisterNewUserPage> {
                         key: _formKey,
                         child: ContainerRegisterWidget(
                           title: 'Novo usuário',
-                          textFormWidget1: DefaultTextFormWidget(
-                            title: 'CPF',
-                            hintText: 'Digite aqui',
-                            textInputType: TextInputType.number,
-                            controller: _cpfController,
-                            validator: Validatorless.multiple([
-                              Validatorless.required('Informe seu CPF'),
-                              Validatorless.cpf('Informe seu CPF'),
-                            ]),
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly,
-                              CpfInputFormatter(),
-                            ],
+                          textFormWidget1: CpfWidget(
+                            onSave: (value) =>
+                                _model = _model.copyWith(cpf: value),
                           ),
-                          textFormWidget2: DefaultTextFormWidget(
-                            controller: _phoneController,
-                            hintText: '(DDD) número',
-                            textInputType: TextInputType.number,
-                            title: 'Telefone',
-                            validator:
-                                Validatorless.required('Informe seu telefone'),
+                          textFormWidget2: PhoneWidget(
+                            onSave: (value) =>
+                                _model = _model.copyWith(phone: value),
                           ),
+                          onSaved: (value) =>
+                              _model = _model.copyWith(farm: value),
                         ),
                       ),
                       const SizedBox(
@@ -97,9 +76,9 @@ class _RegisterNewUserPageState extends State<RegisterNewUserPage> {
                     child: RetangularButtonWidget(
                       title: 'Cadastrar',
                       onPressed: () {
-                        final formValid =
-                            _formKey.currentState?.validate() ?? false;
-                        if (formValid) {}
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                        }
                       },
                     ),
                   ),

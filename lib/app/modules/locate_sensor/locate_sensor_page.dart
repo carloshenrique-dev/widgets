@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 
 class LocateSensorPage extends StatelessWidget {
   const LocateSensorPage({Key? key}) : super(key: key);

@@ -1,8 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 
 class RecoverPasswordPage extends StatelessWidget {
   const RecoverPasswordPage({super.key});
@@ -54,12 +53,14 @@ class RecoverPasswordPage extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const AutoSizeText(
+              const Text(
                 'Caso não tenha acesso ao seu e-mail cadastrado, não se preocupe, enviaremos também para seu e-mail de recuperação.',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
                 ),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(
                 height: 40,
