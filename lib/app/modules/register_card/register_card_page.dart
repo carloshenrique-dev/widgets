@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/address_widget/address_widget.dart';
 import 'package:widgets/app/core/ui/widgets/personalized_container_widget/personalized_container_widget.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 import 'package:widgets/app/entities/address.dart';
 import 'package:widgets/app/entities/payment/card.dart';
 import 'package:widgets/app/core/ui/widgets/card_fields_widget/card_fields_widget.dart';
@@ -103,7 +103,6 @@ class _RegisterCardPageState extends State<RegisterCardPage> {
                       _model = _model.copyWith(
                         address: _addressModel,
                       );
-                      print(_model);
                     }
                   },
                 ),

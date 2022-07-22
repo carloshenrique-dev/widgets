@@ -34,11 +34,6 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
       onPressed: () {
         showModalBottomSheet(
           context: context,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(15),
-            ),
-          ),
           builder: (context) => Padding(
             padding: const EdgeInsets.all(10),
             child: Column(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:validatorless/validatorless.dart';
-import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/default_text_form_field_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/cpf_widget.dart';
 import 'package:widgets/app/core/utils/formatters/expiration_date_formatter.dart';
 

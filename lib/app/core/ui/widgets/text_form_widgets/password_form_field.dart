@@ -8,6 +8,8 @@ class PasswordFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final bool obscureText;
   final void Function()? onPressed;
+  final Function(String?)? onSaved;
+
   const PasswordFormField({
     super.key,
     this.onPressed,
@@ -16,6 +18,7 @@ class PasswordFormField extends StatelessWidget {
     this.title,
     this.hintText,
     this.controller,
+    this.onSaved,
   });
 
   @override
@@ -44,6 +47,7 @@ class PasswordFormField extends StatelessWidget {
             ),
           ),
           validator: validator,
+          onSaved: onSaved,
         ),
       ],
     );

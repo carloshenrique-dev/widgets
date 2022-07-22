@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/button_with_icon_widget.dart';
-import 'package:widgets/app/core/ui/widgets/container_register_widget.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/button_with_icon_widget.dart';
+import 'package:widgets/app/core/ui/widgets/container_register_widget/container_register_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/cpf_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/phone_widget.dart';
 import 'package:widgets/app/entities/register/register_new_user.dart';
@@ -78,8 +78,6 @@ class _RegisterNewUserPageState extends State<RegisterNewUserPage> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-
-                          print(_model);
                         }
                       },
                     ),

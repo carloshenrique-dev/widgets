@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/widgets/address_widget/address_widget.dart';
 import 'package:widgets/app/core/ui/widgets/personalized_container_widget/personalized_container_widget.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 import 'package:widgets/app/core/ui/widgets/total_amount_widget/total_amount_widget.dart';
 import 'package:widgets/app/entities/address.dart';
 import 'package:widgets/app/entities/payment/card.dart';
@@ -104,7 +104,6 @@ class _CardPageState extends State<CardPage> {
                       _model = _model.copyWith(
                         address: _addressModel,
                       );
-                      print(_model);
                     }
                   },
                 ),

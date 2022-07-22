@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/button_with_icon_widget.dart';
-import 'package:widgets/app/core/ui/widgets/container_register_widget.dart';
-import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/button_with_icon_widget.dart';
+import 'package:widgets/app/core/ui/widgets/container_register_widget/container_register_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/email_widget.dart';
 import 'package:widgets/app/entities/register/register_new_group.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_text_style.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 
 class OtpPage extends StatefulWidget {
   const OtpPage({Key? key}) : super(key: key);

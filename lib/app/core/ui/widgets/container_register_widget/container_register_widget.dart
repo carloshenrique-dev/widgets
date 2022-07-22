@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/themes/app_text_style.dart';
-import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/default_text_form_field_widget.dart';
 import 'package:widgets/app/core/ui/widgets/drop_down_form_widget/dropdown_widget.dart';
 
 class ContainerRegisterWidget extends StatelessWidget {

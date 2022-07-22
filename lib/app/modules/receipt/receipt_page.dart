@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_text_style.dart';
 import 'package:widgets/app/core/ui/widgets/address_widget/address_widget.dart';
-import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/default_text_form_field_widget.dart';
 import 'package:widgets/app/core/ui/widgets/personalized_container_widget/personalized_container_widget.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/cpf_widget.dart';
 import 'package:widgets/app/entities/address.dart';
 import 'package:widgets/app/entities/payment/receipt.dart';
@@ -92,8 +92,6 @@ class _ReceiptPageState extends State<ReceiptPage> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-
-                      print(_model);
                     }
                   },
                 ),

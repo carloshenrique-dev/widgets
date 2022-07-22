@@ -21,6 +21,13 @@ class AppUI {
     ),
     textSelectionTheme:
         const TextSelectionThemeData(cursorColor: AppColors.ligthGrey),
+    bottomSheetTheme: const BottomSheetThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(15),
+        ),
+      ),
+    ),
     inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: AppColors.ligthGrey),
       border: OutlineInputBorder(),

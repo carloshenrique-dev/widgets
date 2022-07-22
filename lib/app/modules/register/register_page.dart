@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
-import 'package:widgets/app/core/ui/widgets/password_form_field.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/password_form_field.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});

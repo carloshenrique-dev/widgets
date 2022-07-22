@@ -63,7 +63,7 @@ class ReadingsPage extends StatelessWidget {
                                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color: AppColors.gray,
+                                  color: AppColors.grey,
                                 ),
                               ),
                             ],
@@ -108,7 +108,7 @@ class ReadingsPage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
-                color: AppColors.gray,
+                color: AppColors.grey,
               ),
             ),
             const SizedBox(height: 20),
@@ -133,9 +133,9 @@ class ReadingsPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
-                  color: AppColors.gray,
+                  color: AppColors.grey,
                   decoration: TextDecoration.underline,
-                  decorationColor: AppColors.gray,
+                  decorationColor: AppColors.grey,
                 ),
               ),
             ),

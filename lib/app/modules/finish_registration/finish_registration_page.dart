@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/address_widget/address_widget.dart';
-import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/birth_date_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/cpf_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/email_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/phone_widget.dart';
 import 'package:widgets/app/entities/address.dart';
 import 'package:widgets/app/entities/finish_registration/finish_registration.dart';
-import 'widgets/avatar_widget.dart';
+import '../../core/ui/widgets/avatar_widget/avatar_widget.dart';
 import '../../core/ui/widgets/drop_down_form_widget/dropdown_widget.dart';
 
 class FinishRegistrationPage extends StatefulWidget {
@@ -193,7 +193,6 @@ class _FinishRegistrationPageState extends State<FinishRegistrationPage> {
                                         _model = _model.copyWith(
                                           address: _addressModel,
                                         );
-                                        print(_model);
                                       }
                                     },
                                   ),

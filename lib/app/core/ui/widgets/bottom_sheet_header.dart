@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../themes/app_colors.dart';
 
 class BottomSheetHeader extends StatelessWidget {
@@ -15,11 +14,6 @@ class BottomSheetHeader extends StatelessWidget {
       children: <Widget>[
         Row(
           children: [
-            Visibility(
-              visible: icon != null,
-              child: Icon(icon),
-            ),
-            const SizedBox(width: 20),
             Text(
               title,
               style: const TextStyle(

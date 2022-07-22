@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:validatorless/validatorless.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/address_widget/address_widget.dart';
-import 'package:widgets/app/core/ui/widgets/default_text_form_field_widget.dart';
+import 'package:widgets/app/core/ui/widgets/text_form_widgets/default_text_form_field_widget.dart';
 import 'package:widgets/app/core/ui/widgets/personalized_container_widget/personalized_container_widget.dart';
-import 'package:widgets/app/core/ui/widgets/retangular_button_widget.dart';
+import 'package:widgets/app/core/ui/widgets/button_widgets/retangular_button_widget.dart';
 import 'package:widgets/app/core/ui/widgets/text_form_widgets/cnpj_widget.dart';
 import 'package:widgets/app/entities/address.dart';
 import 'package:widgets/app/entities/farm_data/farm_data.dart';
@@ -122,7 +122,6 @@ class _EditFarmDataPageState extends State<EditFarmDataPage> {
                       _model = _model.copyWith(
                         address: _addressModel,
                       );
-                      print(_model);
                     }
                   },
                 ),
