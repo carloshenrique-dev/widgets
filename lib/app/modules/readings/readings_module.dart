@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:widgets/app/modules/readings/read_screen_with_sensor/read_screen_with_sensor_module.dart';
 import 'package:widgets/app/modules/readings/readings_page.dart';
 
 class ReadingsModule extends Module {
@@ -13,5 +14,6 @@ class ReadingsModule extends Module {
           '/',
           child: (context, args) => const ReadingsPage(),
         ),
+        ModuleRoute('/readScreenSensor/', module: ReadScreenWithSensorModule())
       ];
 }

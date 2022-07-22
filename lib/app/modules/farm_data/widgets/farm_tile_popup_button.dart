@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/modules/fields/fields_page.dart';
+import '../../fields/fields_page.dart';
+import '../../../core/ui/themes/app_colors.dart';
 
 class FarmTilePopupButton extends StatelessWidget {
   const FarmTilePopupButton({Key? key}) : super(key: key);

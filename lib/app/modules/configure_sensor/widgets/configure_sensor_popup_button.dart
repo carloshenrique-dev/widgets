@@ -1,10 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/modules/fields/fields_page.dart';
+import '../../fields/fields_page.dart';
+import '../../../core/ui/themes/app_colors.dart';
 
-class FarmTilePopupButton extends StatelessWidget {
-  const FarmTilePopupButton({Key? key}) : super(key: key);
+class ConfigureSensorPopupButton extends StatelessWidget {
+  final String sensorStatus;
+
+  const ConfigureSensorPopupButton({
+    super.key,
+    required this.sensorStatus,
+  });
+
+  Map<String, IconData?> checkStatus(String status) {
+    if (status == 'Em Trânsito') {
+      status = 'Recebido';
+      return {status: Icons.check_box_outlined};
+    } else if (status == 'Entregue') {
+      status = 'Registrar';
+      return {status: FontAwesomeIcons.locationDot};
+    } else {
+      status = 'Em Trânsito';
+      return {status: Icons.map};
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,35 +34,20 @@ class FarmTilePopupButton extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           value: PopupOptions.data,
           child: Row(
-            children: const [
-              Icon(Icons.data_thresholding),
-              SizedBox(
+            children: [
+              Icon(
+                checkStatus(sensorStatus).values.elementAt(0),
+                color: AppColors.purpleBlue,
+              ),
+              const SizedBox(
                 width: 20,
               ),
               Text(
-                'Dados da Fazenda',
-                style: TextStyle(
-                  color: AppColors.purpleBlue,
-                  fontSize: 17,
-                ),
-              ),
-            ],
-          ),
-          onTap: () {},
-        ),
-        PopupMenuItem(
-          height: 50,
-          padding: const EdgeInsets.all(10),
-          value: PopupOptions.data,
-          child: Row(
-            children: const [
-              Icon(FontAwesomeIcons.leaf),
-              SizedBox(
-                width: 20,
-              ),
-              Text(
-                'Área de Cultivo',
-                style: TextStyle(
+                checkStatus(sensorStatus)
+                    .keys
+                    .toString()
+                    .replaceAll(RegExp('[()]'), ''),
+                style: const TextStyle(
                   color: AppColors.purpleBlue,
                   fontSize: 17,
                 ),

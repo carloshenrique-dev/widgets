@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/popup_buttons/field_tile_popup_button.dart';
+import 'package:widgets/app/modules/configure_sensor/widgets/configure_sensor_popup_button.dart';
 import 'package:widgets/app/core/ui/widgets/header.dart';
-import 'package:widgets/app/core/ui/widgets/register_sensor_bottom_sheet.dart';
-import 'package:widgets/app/core/ui/widgets/sensor_edit_bottom_sheet.dart';
+import 'package:widgets/app/modules/configure_sensor/widgets/register_sensor_bottom_sheet.dart';
+import 'package:widgets/app/modules/configure_sensor/widgets/sensor_edit_bottom_sheet.dart';
 import '../../core/ui/widgets/filter_widget/filter_bottom_sheet.dart';
 
 class ConfigureSensorPage extends StatefulWidget {
@@ -17,10 +17,17 @@ class ConfigureSensorPage extends StatefulWidget {
 
 class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
   final TextEditingController _controller = TextEditingController();
+  List<String> dropdownList = ['01', '02', '03'];
+  String? dropdownValue = '01';
+
+  List<String> talhao = ['Talhão', 'df'];
+  String? talhaoValue = 'Talhão';
+  List<String> farm = ['Fazenda', 'Foz'];
+  String? farmValue = 'Fazenda';
 
   List sensorsList = [
     {'DJ236546584': 'Em Trânsito'},
-    {'DJ222222222': 'Recebido'},
+    {'DJ222222222': 'Entregue'},
     {'DJ333333333': 'Registrado'},
     {'DJ444444444': 'Em Trânsito'},
   ];
@@ -30,7 +37,7 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
     Color getTextColor(String? value) {
       if (value == 'Em Trânsito') {
         return Colors.orange;
-      } else if (value == 'Recebido') {
+      } else if (value == 'Entregue') {
         return AppColors.green;
       } else {
         return AppColors.purpleBlue;
@@ -50,8 +57,9 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
               delegate: Header(
                 maxHeight: 80,
                 minHeight: 80,
+                color: AppColors.white,
                 widget: Padding(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -68,9 +76,13 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                         ),
                       ),
                       Row(
-                        children: const [
-                          RegisterSensorBottomSheet(),
-                          FilterBottomSheet(),
+                        children: [
+                          RegisterSensorBottomSheet(
+                            sensorNumberList: dropdownList,
+                            fieldList: talhao,
+                            farmList: farm,
+                          ),
+                          const FilterBottomSheet(),
                         ],
                       ),
                     ],
@@ -142,6 +154,9 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                                       alignment: Alignment.centerLeft,
                                       child: SensorEditBottomSheet(
                                         sensorName: sensor,
+                                        sensorNumberList: dropdownList,
+                                        fieldList: talhao,
+                                        farmList: farm,
                                       ),
                                     ),
                                   ),
@@ -157,7 +172,9 @@ class _ConfigureSensorPageState extends State<ConfigureSensorPage> {
                                             color: getTextColor(status),
                                           ),
                                         ),
-                                        const FieldTilePopupButton(),
+                                        ConfigureSensorPopupButton(
+                                          sensorStatus: status,
+                                        ),
                                       ],
                                     ),
                                   )

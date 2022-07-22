@@ -38,6 +38,7 @@ dependencies:
   modular_bloc_bind: ^1.0.1
   validatorless: ^1.2.1
   font_awesome_flutter: ^10.1.0
+  fl_chart: ^0.55.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

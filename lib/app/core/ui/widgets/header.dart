@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 
 class Header extends SliverPersistentHeaderDelegate {
-  final bool isWhite;
+  final Color color;
   final Widget widget;
   final double maxHeight;
   final double minHeight;
@@ -11,7 +11,7 @@ class Header extends SliverPersistentHeaderDelegate {
     required this.widget,
     this.maxHeight = 130,
     this.minHeight = 130,
-    this.isWhite = false,
+    this.color = AppColors.backgroundColor,
   });
 
   @override
@@ -22,7 +22,7 @@ class Header extends SliverPersistentHeaderDelegate {
   ) {
     return LayoutBuilder(
       builder: (context, constraints) => Container(
-        color: isWhite ? AppColors.backgroundColor : Colors.transparent,
+        color: color,
         height: constraints.maxHeight,
         child: widget,
       ),
