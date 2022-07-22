@@ -285,7 +285,7 @@ class _RegisterSensorBottomSheetState extends State<RegisterSensorBottomSheet> {
                                   child: Container(
                                     padding: const EdgeInsets.all(20),
                                     height: 250,
-                                    width: 300,
+                                    width: 320,
                                     decoration: BoxDecoration(
                                       color: AppColors.white,
                                       borderRadius: BorderRadius.circular(10),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/bottom_navigation_bar.dart';
 import 'package:widgets/app/core/ui/widgets/drawer_menu.dart';
@@ -127,7 +128,9 @@ class ReadingsPage extends StatelessWidget {
               child: SizedBox(),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Modular.to.navigate('/readings/readScreenSensor/');
+              },
               child: const Text(
                 'Tela de leitura com sensor',
                 style: TextStyle(

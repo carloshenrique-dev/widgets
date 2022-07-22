@@ -16,6 +16,7 @@ class BottomSheetHeader extends StatelessWidget {
           style: const TextStyle(
             color: AppColors.purpleBlue,
             fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
         IconButton(
