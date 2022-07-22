@@ -2,11 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 
-class ConfigPlanPage extends StatelessWidget {
+class ConfigPlanPage extends StatefulWidget {
   const ConfigPlanPage({Key? key}) : super(key: key);
 
   @override
+  State<ConfigPlanPage> createState() => _ConfigPlanPageState();
+}
+
+class _ConfigPlanPageState extends State<ConfigPlanPage> {
+  @override
   Widget build(BuildContext context) {
+    bool autoRenew = false;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -141,10 +147,17 @@ class ConfigPlanPage extends StatelessWidget {
                                 const SizedBox(height: 40),
                                 Row(
                                   children: [
-                                    CupertinoSwitch(
-                                      activeColor: AppColors.purpleBlue,
-                                      value: true,
-                                      onChanged: (value) {},
+                                    StatefulBuilder(
+                                      builder: ((context, setState) =>
+                                          CupertinoSwitch(
+                                            activeColor: AppColors.purpleBlue,
+                                            value: autoRenew,
+                                            onChanged: (value) {
+                                              setState(() {
+                                                autoRenew = value;
+                                              });
+                                            },
+                                          )),
                                     ),
                                     const Text(
                                       'Renovar automaticamente',
