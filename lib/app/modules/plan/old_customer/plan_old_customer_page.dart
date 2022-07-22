@@ -17,8 +17,8 @@ class _PlanOldCustomerPageState extends State<PlanOldCustomerPage> {
   Widget build(BuildContext context) {
     RadioButtonOptions? selectedRadioButtonOption = RadioButtonOptions.one;
     final TextEditingController numberOfSensors = TextEditingController();
-    final double subtotal = 0.0;
-    final double total = 0.0;
+    const double subtotal = 0.0;
+    const double total = 0.0;
 
     return SafeArea(
       child: Scaffold(
@@ -67,7 +67,7 @@ class _PlanOldCustomerPageState extends State<PlanOldCustomerPage> {
                             builder: (context, setState) => Column(
                               children: [
                                 RadioListTile(
-                                  contentPadding: const EdgeInsets.all(0),
+                                  contentPadding: EdgeInsets.zero,
                                   activeColor: AppColors.purpleBlue,
                                   title: Row(
                                     children: [
@@ -117,7 +117,7 @@ class _PlanOldCustomerPageState extends State<PlanOldCustomerPage> {
                       ),
                     ),
                     const SizedBox(height: 15),
-                    SubtotalWidget(
+                    const SubtotalWidget(
                       isNew: false,
                       subtotal: subtotal,
                       total: total,

@@ -11,16 +11,23 @@ class ConfigureSensorPopupButton extends StatelessWidget {
     required this.sensorStatus,
   });
 
-  Map<String, IconData?> checkStatus(String status) {
+  IconData changeIcon(String status) {
     if (status == 'Em Trânsito') {
-      status = 'Recebido';
-      return {status: Icons.check_box_outlined};
+      return Icons.check_box_outlined;
     } else if (status == 'Entregue') {
-      status = 'Registrar';
-      return {status: FontAwesomeIcons.locationDot};
+      return FontAwesomeIcons.locationDot;
     } else {
-      status = 'Em Trânsito';
-      return {status: Icons.map};
+      return Icons.map;
+    }
+  }
+
+  String changeText(String status) {
+    if (status == 'Em Trânsito') {
+      return 'Recebido';
+    } else if (status == 'Entregue') {
+      return 'Registrar';
+    } else {
+      return 'Em Trânsito';
     }
   }
 
@@ -36,17 +43,14 @@ class ConfigureSensorPopupButton extends StatelessWidget {
           child: Row(
             children: [
               Icon(
-                checkStatus(sensorStatus).values.elementAt(0),
+                changeIcon(sensorStatus),
                 color: AppColors.purpleBlue,
               ),
               const SizedBox(
                 width: 20,
               ),
               Text(
-                checkStatus(sensorStatus)
-                    .keys
-                    .toString()
-                    .replaceAll(RegExp('[()]'), ''),
+                changeText(sensorStatus),
                 style: const TextStyle(
                   color: AppColors.purpleBlue,
                   fontSize: 17,

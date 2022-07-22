@@ -17,8 +17,8 @@ class _PlanNewCustomerPageState extends State<PlanNewCustomerPage> {
   Widget build(BuildContext context) {
     RadioButtonOptions? selectedRadioButtonOption = RadioButtonOptions.one;
     final TextEditingController numberOfSensors = TextEditingController();
-    final double subtotal = 0.0;
-    final double total = 0.0;
+    const double subtotal = 0.0;
+    const double total = 0.0;
 
     return SafeArea(
       child: Scaffold(
@@ -131,7 +131,7 @@ class _PlanNewCustomerPageState extends State<PlanNewCustomerPage> {
                       ),
                     ),
                     const SizedBox(height: 15),
-                    SubtotalWidget(
+                    const SubtotalWidget(
                       subtotal: subtotal,
                       total: total,
                     ),

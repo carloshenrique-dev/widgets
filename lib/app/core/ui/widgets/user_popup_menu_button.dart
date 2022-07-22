@@ -21,7 +21,6 @@ class UserPopupMenuButton extends StatelessWidget {
           height: 50,
           padding: const EdgeInsets.all(10),
           value: 0,
-          enabled: true,
           child: Column(
             children: [
               Row(

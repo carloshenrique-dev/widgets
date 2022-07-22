@@ -178,7 +178,7 @@ class SubtotalWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            margin: const EdgeInsets.only(),
+                            margin: EdgeInsets.zero,
                             child: const Text(
                               '-Pacote de serviço de conectividade e \narmazenamento de dados para número de\n sensores contratado.\n-Número de usuários limitado.\n-Conexões com serviços de terceiros limitado.',
                               style: TextStyle(
