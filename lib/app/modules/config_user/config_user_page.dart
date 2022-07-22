@@ -54,7 +54,7 @@ class _ConfigUserPageState extends State<ConfigUserPage> {
                           },
                           icon: const Icon(
                             Icons.close_outlined,
-                            color: AppColors.gray,
+                            color: AppColors.grey,
                           ),
                         )
                       ],
@@ -125,99 +125,105 @@ class _ConfigUserPageState extends State<ConfigUserPage> {
       context: context,
       builder: (context) {
         return StatefulBuilder(
-          builder: ((context, setState) => Container(
-                color: const Color(0xFF737373),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                    ),
-                  ),
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  child: SizedBox(
-                    child: Column(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: const [
-                                  Text(
-                                    'Nível de acesso',
-                                    style: TextStyle(
-                                      color: AppColors.purpleBlue,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(width: 10),
-                                  Icon(FontAwesomeIcons.circleQuestion,
-                                      color: AppColors.purpleBlue),
-                                ],
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(
-                                  Icons.close_outlined,
-                                  color: AppColors.gray,
+          builder: (context, setState) => Container(
+            color: const Color(0xFF737373),
+            child: Container(
+              decoration: const BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                ),
+              ),
+              height: MediaQuery.of(context).size.height * 0.3,
+              child: SizedBox(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: const [
+                              Text(
+                                'Nível de acesso',
+                                style: TextStyle(
+                                  color: AppColors.purpleBlue,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              )
+                              ),
+                              SizedBox(width: 10),
+                              Icon(
+                                FontAwesomeIcons.circleQuestion,
+                                color: AppColors.purpleBlue,
+                              ),
                             ],
                           ),
-                        ),
-                        Column(
-                          children: [
-                            RadioListTile(
-                              activeColor: AppColors.purpleBlue,
-                              title: Text('Administrador',
-                                  style: TextStyle(
-                                    color: _selectedRadioButtonOption ==
-                                            RadioButtonOptions.admin
-                                        ? AppColors.black
-                                        : AppColors.gray,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w400,
-                                  )),
-                              value: RadioButtonOptions.admin,
-                              groupValue: _selectedRadioButtonOption,
-                              onChanged: (RadioButtonOptions? selected) {
-                                setState(() {
-                                  _selectedRadioButtonOption = selected;
-                                });
-                              },
+                          IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: const Icon(
+                              Icons.close_outlined,
+                              color: AppColors.grey,
                             ),
-                            RadioListTile(
-                              activeColor: AppColors.purpleBlue,
-                              title: Text('Engenheiro',
-                                  style: TextStyle(
-                                    color: _selectedRadioButtonOption ==
-                                            RadioButtonOptions.engineer
-                                        ? AppColors.black
-                                        : AppColors.gray,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w400,
-                                  )),
-                              value: RadioButtonOptions.engineer,
-                              groupValue: _selectedRadioButtonOption,
-                              onChanged: (RadioButtonOptions? selected) {
-                                setState(() {
-                                  _selectedRadioButtonOption = selected;
-                                });
-                              },
-                            ),
-                          ],
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
-                  ),
+                    Column(
+                      children: [
+                        RadioListTile(
+                          activeColor: AppColors.purpleBlue,
+                          title: Text(
+                            'Administrador',
+                            style: TextStyle(
+                              color: _selectedRadioButtonOption ==
+                                      RadioButtonOptions.admin
+                                  ? AppColors.black
+                                  : AppColors.grey,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          value: RadioButtonOptions.admin,
+                          groupValue: _selectedRadioButtonOption,
+                          onChanged: (RadioButtonOptions? selected) {
+                            setState(() {
+                              _selectedRadioButtonOption = selected;
+                            });
+                          },
+                        ),
+                        RadioListTile(
+                          activeColor: AppColors.purpleBlue,
+                          title: Text(
+                            'Engenheiro',
+                            style: TextStyle(
+                              color: _selectedRadioButtonOption ==
+                                      RadioButtonOptions.engineer
+                                  ? AppColors.black
+                                  : AppColors.grey,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          value: RadioButtonOptions.engineer,
+                          groupValue: _selectedRadioButtonOption,
+                          onChanged: (RadioButtonOptions? selected) {
+                            setState(() {
+                              _selectedRadioButtonOption = selected;
+                            });
+                          },
+                        ),
+                      ],
+                    )
+                  ],
                 ),
-              )),
+              ),
+            ),
+          ),
         );
       },
     );
@@ -237,8 +243,8 @@ class _ConfigUserPageState extends State<ConfigUserPage> {
             SliverPersistentHeader(
               pinned: true,
               delegate: Header(
-                max: 80,
-                min: 80,
+                maxHeight: 80,
+                minHeight: 80,
                 widget: Row(
                   children: [
                     Container(
@@ -349,7 +355,7 @@ class _ConfigUserPageState extends State<ConfigUserPage> {
                                           Text(
                                             'data',
                                             style: TextStyle(
-                                              color: AppColors.gray,
+                                              color: AppColors.grey,
                                               fontSize: 14,
                                             ),
                                           )

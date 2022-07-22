@@ -159,47 +159,47 @@ class SubtotalWidget extends StatelessWidget {
               ),
             ),
           ),
-          isNew == true
-              ? Column(
-                  children: [
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      child: Row(
+          if (isNew == true)
+            Column(
+              children: [
+                const SizedBox(height: 20),
+                SizedBox(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        '*',
+                        style: TextStyle(
+                          color: AppColors.purpleBlue,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            '*',
-                            style: TextStyle(
-                              color: AppColors.purpleBlue,
+                          Container(
+                            margin: const EdgeInsets.only(),
+                            child: const Text(
+                              '-Pacote de serviço de conectividade e \narmazenamento de dados para número de\n sensores contratado.\n-Número de usuários limitado.\n-Conexões com serviços de terceiros limitado.',
+                              style: TextStyle(
+                                color: AppColors.grey,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                              ),
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.only(bottom: 0),
-                                child: const Text(
-                                  '-Pacote de serviço de conectividade e \narmazenamento de dados para número de\n sensores contratado.\n-Número de usuários limitado.\n-Conexões com serviços de terceiros limitado.',
-                                  style: TextStyle(
-                                    color: AppColors.gray,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
                         ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                  ],
-                )
-              : const SizedBox(),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            )
+          else
+            const SizedBox(),
         ],
       ),
     );

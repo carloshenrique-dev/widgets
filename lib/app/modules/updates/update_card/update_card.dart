@@ -59,7 +59,7 @@ class _UpdateCardState extends State<UpdateCard> {
                   TextSpan(
                     text: widget.version,
                     style: const TextStyle(
-                      color: AppColors.gray,
+                      color: AppColors.grey,
                     ),
                   ),
                 ],
@@ -79,7 +79,7 @@ class _UpdateCardState extends State<UpdateCard> {
                   TextSpan(
                     text: widget.versionAvailable,
                     style: const TextStyle(
-                      color: AppColors.gray,
+                      color: AppColors.grey,
                     ),
                   ),
                 ],

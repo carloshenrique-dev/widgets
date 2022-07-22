@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../modules/fields/fields_page.dart';
-import '../themes/app_colors.dart';
+import '../../fields/fields_page.dart';
+import '../../../core/ui/themes/app_colors.dart';
 
 class FarmTilePopupButton extends StatelessWidget {
   const FarmTilePopupButton({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class FarmTilePopupButton extends StatelessWidget {
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Data,
+          value: PopupOptions.data,
           child: Row(
             children: const [
               Icon(Icons.data_thresholding),
@@ -35,7 +35,7 @@ class FarmTilePopupButton extends StatelessWidget {
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Data,
+          value: PopupOptions.data,
           child: Row(
             children: const [
               Icon(FontAwesomeIcons.leaf),
@@ -56,7 +56,7 @@ class FarmTilePopupButton extends StatelessWidget {
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Remove,
+          value: PopupOptions.remove,
           child: Row(
             children: const [
               Icon(Icons.delete_rounded, color: Colors.red),

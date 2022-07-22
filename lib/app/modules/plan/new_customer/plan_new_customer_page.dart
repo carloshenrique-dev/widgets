@@ -16,9 +16,9 @@ class _PlanNewCustomerPageState extends State<PlanNewCustomerPage> {
   @override
   Widget build(BuildContext context) {
     RadioButtonOptions? selectedRadioButtonOption = RadioButtonOptions.one;
-    TextEditingController numberOfSensors = TextEditingController();
-    double subtotal = 0.0;
-    double total = 0.0;
+    final TextEditingController numberOfSensors = TextEditingController();
+    final double subtotal = 0.0;
+    final double total = 0.0;
 
     return SafeArea(
       child: Scaffold(
@@ -36,9 +36,10 @@ class _PlanNewCustomerPageState extends State<PlanNewCustomerPage> {
                       'Parabéns! Sua Fazenda tem cobertura digital!',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: AppColors.green,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w500),
+                        color: AppColors.green,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(height: 20),
                     SensorCounter(
@@ -57,80 +58,80 @@ class _PlanNewCustomerPageState extends State<PlanNewCustomerPage> {
                             'Assinatura de serviço de conectividade \n e armazenamento de dados*',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.purpleBlue),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.purpleBlue,
+                            ),
                           ),
                           StatefulBuilder(
-                            builder: ((context, setState) => Column(
-                                  children: [
-                                    RadioListTile(
-                                      activeColor: AppColors.purpleBlue,
-                                      title: Text('12 Meses',
-                                          style: TextStyle(
-                                            color: selectedRadioButtonOption ==
-                                                    RadioButtonOptions.one
-                                                ? AppColors.black
-                                                : AppColors.gray,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w700,
-                                          )),
-                                      value: RadioButtonOptions.one,
-                                      groupValue: selectedRadioButtonOption,
-                                      onChanged:
-                                          (RadioButtonOptions? selected) {
-                                        setState(() {
-                                          selectedRadioButtonOption = selected;
-                                        });
-                                      },
+                            builder: (context, setState) => Column(
+                              children: [
+                                RadioListTile(
+                                  activeColor: AppColors.purpleBlue,
+                                  title: Text(
+                                    '12 Meses',
+                                    style: TextStyle(
+                                      color: selectedRadioButtonOption ==
+                                              RadioButtonOptions.one
+                                          ? AppColors.black
+                                          : AppColors.grey,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700,
                                     ),
-                                    RadioListTile(
-                                      activeColor: AppColors.purpleBlue,
-                                      title: Row(
-                                        children: [
-                                          Text(
-                                            '24 Meses',
-                                            style: TextStyle(
-                                              color:
-                                                  selectedRadioButtonOption ==
-                                                          RadioButtonOptions.two
-                                                      ? AppColors.black
-                                                      : AppColors.gray,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 40),
-                                          Container(
-                                            padding: const EdgeInsets.all(5),
-                                            color: AppColors.green,
-                                            child: const Text(
-                                              '50% OFF',
-                                              style: TextStyle(
-                                                  color: AppColors.white,
-                                                  fontWeight: FontWeight.w500),
-                                            ),
-                                          ),
-                                        ],
+                                  ),
+                                  value: RadioButtonOptions.one,
+                                  groupValue: selectedRadioButtonOption,
+                                  onChanged: (RadioButtonOptions? selected) {
+                                    setState(() {
+                                      selectedRadioButtonOption = selected;
+                                    });
+                                  },
+                                ),
+                                RadioListTile(
+                                  activeColor: AppColors.purpleBlue,
+                                  title: Row(
+                                    children: [
+                                      Text(
+                                        '24 Meses',
+                                        style: TextStyle(
+                                          color: selectedRadioButtonOption ==
+                                                  RadioButtonOptions.two
+                                              ? AppColors.black
+                                              : AppColors.grey,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w700,
+                                        ),
                                       ),
-                                      value: RadioButtonOptions.two,
-                                      groupValue: selectedRadioButtonOption,
-                                      onChanged:
-                                          (RadioButtonOptions? selected) {
-                                        setState(() {
-                                          selectedRadioButtonOption = selected;
-                                        });
-                                      },
-                                    ),
-                                  ],
-                                )),
+                                      const SizedBox(width: 40),
+                                      Container(
+                                        padding: const EdgeInsets.all(5),
+                                        color: AppColors.green,
+                                        child: const Text(
+                                          '50% OFF',
+                                          style: TextStyle(
+                                            color: AppColors.white,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  value: RadioButtonOptions.two,
+                                  groupValue: selectedRadioButtonOption,
+                                  onChanged: (RadioButtonOptions? selected) {
+                                    setState(() {
+                                      selectedRadioButtonOption = selected;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           )
                         ],
                       ),
                     ),
                     const SizedBox(height: 15),
                     SubtotalWidget(
-                      isNew: true,
                       subtotal: subtotal,
                       total: total,
                     ),

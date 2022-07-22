@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
 import 'package:widgets/app/core/ui/widgets/bottom_navigation_bar.dart';
 import 'package:widgets/app/core/ui/widgets/drawer_menu.dart';
@@ -24,8 +25,7 @@ class ReadingsPage extends StatelessWidget {
             child: InkWell(
               child: IconButton(
                 splashRadius: 15,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.only(right: 0),
+                padding: EdgeInsets.zero,
                 iconSize: 25,
                 onPressed: () {},
                 icon: const Icon(Icons.house_outlined),
@@ -38,7 +38,7 @@ class ReadingsPage extends StatelessWidget {
       ),
       drawer: const DrawerMenu(),
       body: Container(
-        color: AppColors.iceWhite,
+        color: AppColors.backgroundColor,
         child: Column(
           children: [
             Container(
@@ -64,7 +64,7 @@ class ReadingsPage extends StatelessWidget {
                                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color: AppColors.gray,
+                                  color: AppColors.grey,
                                 ),
                               ),
                             ],
@@ -109,7 +109,7 @@ class ReadingsPage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
-                color: AppColors.gray,
+                color: AppColors.grey,
               ),
             ),
             const SizedBox(height: 20),
@@ -118,23 +118,27 @@ class ReadingsPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.8,
               child: OutlinedButton(
                 onPressed: () {},
-                child: const Text('Configurar Sensores',
-                    style: TextStyle(color: AppColors.purpleBlue)),
+                child: const Text(
+                  'Configurar Sensores',
+                  style: TextStyle(color: AppColors.purpleBlue),
+                ),
               ),
             ),
             const Expanded(
               child: SizedBox(),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Modular.to.navigate('/readings/readScreenSensor/');
+              },
               child: const Text(
                 'Tela de leitura com sensor',
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
-                  color: AppColors.gray,
+                  color: AppColors.grey,
                   decoration: TextDecoration.underline,
-                  decorationColor: AppColors.gray,
+                  decorationColor: AppColors.grey,
                 ),
               ),
             ),

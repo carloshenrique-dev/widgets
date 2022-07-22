@@ -8,7 +8,7 @@ class PixPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.iceWhite,
+      backgroundColor: AppColors.backgroundColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Container(

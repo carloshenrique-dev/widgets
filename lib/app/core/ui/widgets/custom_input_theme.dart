@@ -11,10 +11,10 @@ class CustomInputTheme extends StatelessWidget {
   final BorderRadius borderRadius;
   const CustomInputTheme({
     this.borderRadius = BorderRadius.zero,
-    this.hintColor = AppColors.gray,
-    this.focusedBorderColor = AppColors.gray,
-    this.enabledBorderColor = AppColors.gray,
-    this.disabledBorderColor = AppColors.gray,
+    this.hintColor = AppColors.grey,
+    this.focusedBorderColor = AppColors.grey,
+    this.enabledBorderColor = AppColors.grey,
+    this.disabledBorderColor = AppColors.grey,
     this.labelStyleColor = AppColors.black,
     required this.child,
     Key? key,
@@ -23,35 +23,36 @@ class CustomInputTheme extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-        data: ThemeData(
-          inputDecorationTheme: InputDecorationTheme(
-            hintStyle: TextStyle(
-              color: hintColor,
-            ),
-            border: OutlineInputBorder(
-              borderRadius: borderRadius,
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: borderRadius,
-              borderSide: BorderSide(
-                color: focusedBorderColor,
-              ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: borderRadius,
-              borderSide: BorderSide(
-                color: enabledBorderColor,
-              ),
-            ),
-            disabledBorder: OutlineInputBorder(
-              borderRadius: borderRadius,
-              borderSide: BorderSide(
-                color: disabledBorderColor,
-              ),
-            ),
-            labelStyle: TextStyle(color: labelStyleColor),
+      data: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: TextStyle(
+            color: hintColor,
           ),
+          border: OutlineInputBorder(
+            borderRadius: borderRadius,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: borderRadius,
+            borderSide: BorderSide(
+              color: focusedBorderColor,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: borderRadius,
+            borderSide: BorderSide(
+              color: enabledBorderColor,
+            ),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: borderRadius,
+            borderSide: BorderSide(
+              color: disabledBorderColor,
+            ),
+          ),
+          labelStyle: TextStyle(color: labelStyleColor),
         ),
-        child: child);
+      ),
+      child: child,
+    );
   }
 }

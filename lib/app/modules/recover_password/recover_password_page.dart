@@ -9,7 +9,7 @@ class RecoverPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size media = MediaQuery.of(context).size;
+    final Size media = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: AppColors.white,

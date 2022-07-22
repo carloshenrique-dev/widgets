@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-
-import '../../core/ui/themes/app_colors.dart';
-import '../../core/ui/widgets/farm_tile_popup_button.dart';
-import '../../core/ui/widgets/header_widget.dart';
+import 'package:widgets/app/core/ui/themes/app_colors.dart';
+import 'package:widgets/app/modules/farm_data/widgets/farm_tile_popup_button.dart';
+import 'package:widgets/app/core/ui/widgets/filter_widget/filter_bottom_sheet.dart';
+import 'package:widgets/app/core/ui/widgets/header.dart';
 
 class FarmDataPage extends StatefulWidget {
-  const FarmDataPage({Key? key}) : super(key: key);
+  const FarmDataPage({super.key});
 
   @override
   State<FarmDataPage> createState() => _FarmDataPageState();
@@ -20,7 +20,7 @@ class _FarmDataPageState extends State<FarmDataPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dados da Fazenda'),
@@ -30,7 +30,27 @@ class _FarmDataPageState extends State<FarmDataPage> {
           slivers: [
             SliverPersistentHeader(
               pinned: true,
-              delegate: HeaderWidget(),
+              delegate: Header(
+                maxHeight: 60,
+                minHeight: 60,
+                widget: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.add,
+                        color: AppColors.purpleBlue,
+                        size: 30,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const FilterBottomSheet(),
+                  ],
+                ),
+              ),
             ),
             SliverList(
               delegate: SliverChildListDelegate(
@@ -69,7 +89,9 @@ class _FarmDataPageState extends State<FarmDataPage> {
                     Text(
                       farms[index],
                       style: const TextStyle(
-                          color: AppColors.navyBlue, fontSize: 20),
+                        color: AppColors.navyBlue,
+                        fontSize: 20,
+                      ),
                     ),
                   ],
                 ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../modules/fields/fields_page.dart';
 import '../themes/app_colors.dart';
 
@@ -15,7 +14,7 @@ class FinancePopupMenuButton extends StatelessWidget {
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Data,
+          value: PopupOptions.data,
           child: Row(
             children: const [
               Icon(Icons.insert_drive_file_outlined),
@@ -36,7 +35,7 @@ class FinancePopupMenuButton extends StatelessWidget {
         PopupMenuItem(
           height: 50,
           padding: const EdgeInsets.all(10),
-          value: PopupOptions.Remove,
+          value: PopupOptions.remove,
           child: Row(
             children: const [
               Icon(Icons.attach_money_outlined),

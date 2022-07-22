@@ -6,12 +6,16 @@ class RetangularButtonWidget extends StatelessWidget {
   final String? title;
   final VoidCallback? onPressed;
   final Color? color;
+  final Color? onPrimary;
+  final Color? borderColor;
 
   const RetangularButtonWidget({
     super.key,
     this.title,
     this.onPressed,
     this.color,
+    this.onPrimary,
+    this.borderColor,
   });
 
   @override
@@ -20,7 +24,11 @@ class RetangularButtonWidget extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         elevation: 0,
         primary: color ?? AppColors.purpleBlue, // background
-        onPrimary: Colors.white, // foreground
+        onPrimary: onPrimary ?? Colors.white, // foreground
+        side: BorderSide(
+          width: 2,
+          color: borderColor ?? AppColors.purpleBlue,
+        ),
         textStyle: AppTextStyle.buttonText,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),

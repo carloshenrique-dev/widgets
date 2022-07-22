@@ -45,7 +45,7 @@ class _ConfigFarmFieldsPageState extends State<ConfigFarmFieldsPage> {
                           },
                           icon: const Icon(
                             Icons.close_outlined,
-                            color: AppColors.gray,
+                            color: AppColors.grey,
                           ),
                         )
                       ],
@@ -165,7 +165,8 @@ class _ConfigFarmFieldsPageState extends State<ConfigFarmFieldsPage> {
                               TextFormField(
                                 controller: _numberCar,
                                 validator: Validatorless.required(
-                                    'Insira o numero do CAR'),
+                                  'Insira o numero do CAR',
+                                ),
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
                                   hintText: 'DigiteAqui',
@@ -188,8 +189,6 @@ class _ConfigFarmFieldsPageState extends State<ConfigFarmFieldsPage> {
                                   ),
                                   onPressed: _onButtonPressed,
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: const [
                                       Icon(
@@ -314,7 +313,6 @@ class _ConfigFarmFieldsPageState extends State<ConfigFarmFieldsPage> {
                                     primary: AppColors.purpleBlue,
                                     side: const BorderSide(
                                       color: AppColors.purpleBlue,
-                                      width: 1,
                                     ),
                                   ),
                                   onPressed: () {},

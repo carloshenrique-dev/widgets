@@ -1,15 +1,13 @@
-// ignore_for_file: sized_box_for_whitespace
-
 import 'package:flutter/material.dart';
 import 'package:widgets/app/core/ui/themes/app_colors.dart';
-import 'package:widgets/app/core/ui/widgets/field_tile_popup_button.dart';
+import 'package:widgets/app/modules/fields/widgets/field_tile_popup_button.dart';
+import 'package:widgets/app/core/ui/widgets/filter_widget/filter_bottom_sheet.dart';
+import 'package:widgets/app/core/ui/widgets/header.dart';
 
-import '../../core/ui/widgets/header_widget.dart';
-
-enum PopupOptions { Data, Remove }
+enum PopupOptions { data, remove }
 
 class FieldsPage extends StatefulWidget {
-  const FieldsPage({Key? key}) : super(key: key);
+  const FieldsPage({super.key});
 
   @override
   State<FieldsPage> createState() => _FieldsPageState();
@@ -24,7 +22,7 @@ class _FieldsPageState extends State<FieldsPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Talhões'),
@@ -34,7 +32,27 @@ class _FieldsPageState extends State<FieldsPage> {
           slivers: [
             SliverPersistentHeader(
               pinned: true,
-              delegate: HeaderWidget(),
+              delegate: Header(
+                maxHeight: 80,
+                minHeight: 80,
+                widget: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.add,
+                        color: AppColors.purpleBlue,
+                        size: 30,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const FilterBottomSheet(),
+                  ],
+                ),
+              ),
             ),
             SliverList(
               delegate: SliverChildListDelegate(
@@ -73,7 +91,9 @@ class _FieldsPageState extends State<FieldsPage> {
                     Text(
                       plots[index],
                       style: const TextStyle(
-                          color: AppColors.navyBlue, fontSize: 20),
+                        color: AppColors.navyBlue,
+                        fontSize: 20,
+                      ),
                     ),
                   ],
                 ),

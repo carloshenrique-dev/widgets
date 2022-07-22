@@ -17,7 +17,7 @@ class _OtpPageState extends State<OtpPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -39,9 +39,10 @@ class _OtpPageState extends State<OtpPage> {
                         style: AppTextStyle.boldCommonText,
                         children: const [
                           TextSpan(
-                              style: AppTextStyle.commonText,
-                              text:
-                                  'com seu código. Por favor, insira o código abaixo para confirmar seu número de telefone.'),
+                            style: AppTextStyle.commonText,
+                            text:
+                                'com seu código. Por favor, insira o código abaixo para confirmar seu número de telefone.',
+                          ),
                         ],
                       )
                     ],
@@ -81,10 +82,7 @@ class _OtpPageState extends State<OtpPage> {
                       TextSpan(
                         text: 'Reenviar SMS',
                         style: AppTextStyle.textLink,
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            print('object');
-                          },
+                        recognizer: TapGestureRecognizer()..onTap = () {},
                       ),
                     ],
                   ),
@@ -101,10 +99,7 @@ class _OtpPageState extends State<OtpPage> {
                       TextSpan(
                         text: 'Editar número de telefone',
                         style: AppTextStyle.textLink,
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            print('object');
-                          },
+                        recognizer: TapGestureRecognizer()..onTap = () {},
                       )
                     ],
                   ),

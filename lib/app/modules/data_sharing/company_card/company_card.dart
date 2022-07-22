@@ -60,11 +60,13 @@ class _CompanyCardState extends State<CompanyCard> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Desde:',
-                      style: TextStyle(fontSize: 16, color: AppColors.black)),
+                  const Text(
+                    'Desde:',
+                    style: TextStyle(fontSize: 16, color: AppColors.black),
+                  ),
                   Text(
                     widget.date,
-                    style: const TextStyle(fontSize: 16, color: AppColors.gray),
+                    style: const TextStyle(fontSize: 16, color: AppColors.grey),
                   ),
                 ],
               ),
@@ -72,11 +74,13 @@ class _CompanyCardState extends State<CompanyCard> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Volume de Dados:',
-                      style: TextStyle(fontSize: 16, color: AppColors.black)),
+                  const Text(
+                    'Volume de Dados:',
+                    style: TextStyle(fontSize: 16, color: AppColors.black),
+                  ),
                   Text(
                     widget.size,
-                    style: const TextStyle(fontSize: 16, color: AppColors.gray),
+                    style: const TextStyle(fontSize: 16, color: AppColors.grey),
                   ),
                 ],
               ),

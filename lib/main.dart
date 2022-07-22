@@ -7,8 +7,12 @@ import 'package:intl/date_symbol_data_local.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  initializeDateFormatting('pt_BR', null).then((_) => runApp(ModularApp(
+  initializeDateFormatting('pt_BR').then(
+    (_) => runApp(
+      ModularApp(
         module: AppModule(),
         child: const AppWidget(),
-      )));
+      ),
+    ),
+  );
 }

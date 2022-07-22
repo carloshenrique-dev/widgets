@@ -31,7 +31,6 @@ class SelectFarmPage extends StatelessWidget {
                             primary: AppColors.purpleBlue,
                             side: const BorderSide(
                               color: AppColors.purpleBlue,
-                              width: 1,
                             ),
                           ),
                           onPressed: () {},

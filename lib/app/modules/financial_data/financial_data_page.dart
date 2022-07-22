@@ -21,8 +21,8 @@ class FinancialDataPage extends StatelessWidget {
               SliverPersistentHeader(
                 pinned: true,
                 delegate: Header(
-                  max: 80,
-                  min: 80,
+                  maxHeight: 80,
+                  minHeight: 80,
                   widget: const SearchBar(),
                 ),
               ),
@@ -133,39 +133,44 @@ class DateValue extends StatelessWidget {
             shrinkWrap: true,
             itemCount: 2,
             physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: ((context, index) {
-              return Row(children: [
-                const Expanded(
-                  child: SizedBox(
-                    child: Text(
-                      'Data',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400, color: AppColors.gray),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: SizedBox(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
-                          'Valor',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.gray),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+            itemBuilder: (context, index) {
+              return Row(
+                children: [
+                  const Expanded(
+                    child: SizedBox(
+                      child: Text(
+                        'Data',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.grey,
                         ),
-                        FinancePopupMenuButton(),
-                      ],
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
-                ),
-              ]);
-            }),
+                  Expanded(
+                    child: SizedBox(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text(
+                            'Valor',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.grey,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          FinancePopupMenuButton(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
           ),
         ],
       ),
@@ -220,39 +225,44 @@ class FutureTransactions extends StatelessWidget {
             shrinkWrap: true,
             itemCount: 1,
             physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: ((context, index) {
-              return Row(children: [
-                const Expanded(
-                  child: SizedBox(
-                    child: Text(
-                      'Futuros Lançamentos',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400, color: AppColors.gray),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: SizedBox(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
-                          'Valor',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.gray),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+            itemBuilder: (context, index) {
+              return Row(
+                children: [
+                  const Expanded(
+                    child: SizedBox(
+                      child: Text(
+                        'Futuros Lançamentos',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.grey,
                         ),
-                        FinancePopupMenuButton(),
-                      ],
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
-                ),
-              ]);
-            }),
+                  Expanded(
+                    child: SizedBox(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text(
+                            'Valor',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.grey,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          FinancePopupMenuButton(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
           ),
         ],
       ),
@@ -286,7 +296,6 @@ class BottomButton extends StatelessWidget {
           side: MaterialStateProperty.all<BorderSide>(
             const BorderSide(
               color: AppColors.purpleBlue,
-              width: 1,
             ),
           ),
         ),
